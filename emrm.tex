@@ -1,7 +1,7 @@
 \ifdefined\uspaper
-\documentclass[11pt]{report}
+\documentclass[10pt]{report}
 \else
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,10pt]{report}
 \fi
 
 % Encoding goes first because it effects how other packages work
@@ -26,8 +26,7 @@
 
 % Fonts
 \usepackage{courier}
-\usepackage{tgbonum}
-%\usepackage{inconsolata}
+\usepackage{newpxtext}
 
 \usepackage{geometry}
 \usepackage{multicol}
@@ -37,7 +36,7 @@
 \usepackage{hyperref}
 \usepackage{natbib}
 \usepackage{fancyhdr}
-% FIXME: \usepackage{imakeidx}
+\usepackage{imakeidx}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{xcolor}
@@ -181,12 +180,28 @@ Free Documentation License''.
 
 \chapter{Introduction}
 
-\section{The Embroidermodder Project and Team}
+The \emph{Embroidermodder 2} project is a collection of small software utilities for
+manipulating, converting and creating embroidery files in all major embroidery
+machine formats. The program \textit{Embroidermodder 2} itself is a larger graphical
+user interface (GUI) which is at the heart of the project.
 
-The \emph{Embroidermodder 2} project is a collection of small software
-utilities for manipulating, converting and creating embroidery files in all
-major embroidery machine formats. The program *Embroidermodder 2* itself
-is a larger graphical user interface (GUI) which is at the heart of the project.
+This manual, the website (`embroidermodder.org`), mobile embroidery format viewers
+and tools (`iMobileViewer`, `MobileViewer`), the core library of functions
+(`libembroidery`) and CLI (`embroider`) are all tools to make the standard
+user experience of working with an embroidery machine better without expensive
+software which is locked to specific manufacturers and formats. But ultimately
+we hope that the core \textit{Embroidermodder 2} is a practical, ever-present tool in
+larger workshops, small cottage industry workshops and personal hobbyist's
+bedrooms.
+
+Embroidermodder 2 is licensed under the zlib license and we aim to keep all of
+our tools open source and free of charge. If you would like to support the
+project check out our Open Collective group. If you would like to help, please
+join us on GitHub. This document is written as developer training as well
+helping new users (see the last sections) so this is the place to learn how
+to start changing the code.
+
+\section{The Embroidermodder Project and Team}
 
 The tools and associated documents are:
 
@@ -1337,340 +1352,7 @@ One reason why this is useful is that the rewrite by Jonathan Greig, John Varga
 and Robin Swift for Embroidermodder 2 should have no regressions: no features
 present in v1 should be missing in v2.
 
-\section{To Do}
-
-These should be sorted into relevant code sections.
-
-\subsection{Current work}
-
-* `EmbPattern *pattern` as a variable in the `View` class.
-* Removing the now unnecessary `SaveObject` class.
-* Converting all comments to C style.
-* Switching away from Doxygen-style in favour of direct commentary and a custom written reference manual.
-
-\subsection{Documentation}
-
-* Document all tests.
-* Automation of tests.
-* Ensure that the stitch count matches what we know the file has
-
-\subsection{2.0 alpha1}
-
-* WIP - Statistics from 1.0, needs histogram
-* WIP - Saving DST/PES/JEF (varga)
-* WIP - Saving CSV/SVG (rt) + CSV read/write UNKNOWN interpreted as COLOR bug
-
-\subsection{2.0 alpha2}
-
-* Notify user of data loss if not saving to an object format.
-* Import Raster Image
-* SNAP/ORTHO/POLAR
-* Layer Manager + LayerSwitcher DockWidget
-* Reading DXF
-
-\subsection{2.0 alpha3}
-
-* Writing DXF
-* Amount of Thread and Machine Time Estimation (also allow customizable times for setup, color changes, manually trimming jump threads, etc. that way a realistic total time can be estimated)
-* Otto Theme Icons - whatsthis icon doesn't scale well, needs redone
-* embroidermodder2.ico 16 x 16 looks horrible
-
-\subsection{2.0 alpha4}
-
-* WIP - CAD Command: Arc (rt)
-* Load/Save Menu/Toolbars configurations into settings.ini
-
-\subsection{2.0 beta1}
-
-* Custom Filter Bug - doesn't save changes in some cases
-* Cannot open file with \# in name when opening multiple files (works fine when opening the single file)
-* Closing Settings Dialog with the X in the window saves settings rather than discards them
-* WIP - Advanced Printing
-* Filling Algorithms (varga)
-* Otto Theme Icons - beta (rt) - Units, Render, Selectors
-
-\subsection{2.0 rc1}
-
-* Review KDE4 Thumbnailer
-* Documentation for libembroidery and formats
-* HTML Help files
-* Update language translations
-* CAD Command review: line
-* CAD Command review: circle
-* CAD Command review: rectangle
-* CAD Command review: polygon
-* CAD Command review: polyline
-* CAD Command review: point
-* CAD Command review: ellipse
-* CAD Command review: arc
-* CAD Command review: distance
-* CAD Command review: locatepoint
-* CAD Command review: move
-* CAD Command review: rgb
-* CAD Command review: rotate
-* CAD Command review: scale
-* CAD Command review: singlelinetext
-* CAD Command review: star
-* Clean up all compiler warning messages, right now theres plenty :P
-
-\subsection{2.0 release}
-
-\begin{itemize}
-\item tar.gz archive
-\item zip archive
-\item Debian Package (rt)
-\item NSIS Installer (rt)
-\item Mac Bundle?
-\item press release
-\end{itemize}
-
-\subsection{2.x/Ideas}
-
-* libembroidery.mk for MXE project (refer to qt submodule packages for qmake based building. Also refer to plibc.mk for example of how write an update macro for github.)
-* libembroidery safeguard for all writers - check if the last stitch is an END stitch. If not, add an end stitch in the writer and modify the header data if necessary.
-* Cut/Copy - Allow Post-selection
-* CAD Command: Array
-* CAD Command: Offset
-* CAD Command: Extend
-* CAD Command: Trim
-* CAD Command: BreakAtPoint
-* CAD Command: Break2Points
-* CAD Command: Fillet
-* CAD Command: Chamfer
-* CAD Command: Split
-* CAD Command: Area
-* CAD Command: Time
-* CAD Command: PickAdd
-* CAD Command: Product
-* CAD Command: Program
-* CAD Command: ZoomFactor
-* CAD Command: GripHot
-* CAD Command: GripColor and GripCool
-* CAD Command: GripSize
-* CAD Command: Highlight
-* CAD Command: Units
-* CAD Command: Grid
-* CAD Command: Find
-* CAD Command: Divide
-* CAD Command: ZoomWindow (Move out of view.cpp)
-* Command: Web (Generates Spiderweb patterns)
-* Command: Guilloche (Generates Guilloche patterns)
-* Command: Celtic Knots
-* Command: Knotted Wreath
-* Lego Mindstorms NXT/EV3 ports and/or commands.
-* native function that flashes the command prompt to get users attention when using the
-prompt is required for a command.
-* libembroidery-composer like app that combines multiple files into one.
-* Settings Dialog, it would be nice to have it notify you when switching tabs that a
-setting has been changed. Adding an Apply button is what would make sense for this to happen.
-* Keyboard Zooming/Panning
-* G-Code format?
-* 3D Raised Embroidery
-* Gradient Filling Algorithms
-* Stitching Simulation
-* RPM packages?
-* Reports?
-* Record and Playback Commands
-* Settings option for reversing zoom scrolling direction
-* Qt GUI for libembroidery-convert
-* EPS format? Look at using Ghostscript as an optional add-on to libembroidery
-* optional compile option for including LGPL/GPL libs etc. with warning to user about license requirements.
-* Realistic Visualization - Bump Mapping/OpenGL/Gradients?
-* Stippling Fill
-* User Designed Custom Fill
-* Honeycomb Fill
-* Hilburt Curve Fill
-* Sierpinski Triangle fill
-* Circle Grid Fill
-* Spiral Fill
-* Offset Fill
-* Brick Fill
-* Trim jumps over a certain length.
-* FAQ about setting high number of jumps for more controlled trimming.
-* Minimum stitch length option. (Many machines also have this option too)
-* Add 'Design Details' functionality to libembroidery-convert
-* Add 'Batch convert many to one format' functionality to libembroidery-convert
-* EmbroideryFLOSS - Color picker that displays catalog numbers and names.
-* emscripten/javascript port of libembroidery
-
-\subsection{Arduino}
-
-\begin{itemize}
-\item Fix emb-outline files
-\item Fix thread-color files
-\item Logging of Last Stitch Location to External USB Storage(commonly available and easily replaced), wait until TRE is available to avoid rework
-\item inotool.org - seems like the logical solution for Nightly/CI builds
-\item Smoothieboard experiments
-\end{itemize}
-
-\subsection{libembroidery-tests}
-
-\begin{itemize}
-\item looping test that reads 10 times while running valgrind. See \texttt{embPattern\_loadExternalColorFile()} Arduino leak note for more info.
-\end{itemize}
-
-* todo sort todo list.
-* Alpha: High priority
-    * Statistics from 1.0, needs histogram
-    * Saving DST/PES/JEF (varga)
-    * Saving CSV/SVG (rt) + CSV read/write UNKNOWN interpreted as COLOR bug
-* Alpha: medium priority
-    * Notify user of data loss if not saving to an object format.
-    * Import Raster Image
-    * SNAP/ORTHO/POLAR
-    * Layer Manager + LayerSwitcher DockWidget
-    * Reading DXF
-* Alpha: low priority
-    * Writing DXF* Up and Down keys cycle thru commands in the command prompt
-    * Amount of Thread, Machine Time Estimation (also allow customizable times for setup, color changes, manually trimming jump threads, etc...that way a realistic total time can be estimated)
-    * Otto Theme Icons - whatsthis icon doesn't scale well, needs redone
-    * embroidermodder2.ico 16 x 16 looks horrible
-* Alpha: lower priority
-    * CAD Command: Arc (rt)
-* beta
-    * Custom Filter Bug - doesn't save changes in some cases
-    * Cannot open file with `\#` in name when opening multiple files (works fine when opening the single file)
-    * Closing Settings Dialog with the X in the window saves settings rather than discards them
-    * Advanced Printing
-    * Filling Algorithms (varga)
-    * Otto Theme Icons - beta (rt) - Units, Render, Selectors
-* Finish before 2.0 release
-    * QDoc Comments
-    * Review KDE4 Thumbnailer
-    * Documentation for libembroidery and formats
-    * HTML Help files
-    * Update language translations
-    * CAD Command review: line
-    * CAD Command review: circle
-    * CAD Command review: rectangle
-    * CAD Command review: polygon
-    * CAD Command review: polyline
-    * CAD Command review: point
-    * CAD Command review: ellipse
-    * CAD Command review: arc
-    * CAD Command review: distance
-    * CAD Command review: locatepoint
-    * CAD Command review: move
-    * CAD Command review: rgb
-    * CAD Command review: rotate
-    * CAD Command review: scale
-    * CAD Command review: singlelinetext
-    * CAD Command review: star
-    * Clean up all compiler warning messages, right now theres plenty :P
-* 2.0
-    * tar.gz archive
-    * zip archive
-    * Debian Package (rt)
-    * NSIS Installer (rt)
-    * Mac Bundle?
-    * press release
-* 2.x/Ideas
-    * libembroidery.mk for MXE project (refer to qt submodule packages for qmake based building. Also refer to plibc.mk for example of how write an update macro for github.)
-    * libembroidery safeguard for all writers - check if the last stitch is an END stitch. If not, add an end stitch in the writer and modify the header data if necessary.
-    * Cut/Copy - Allow Post-selection
-    * CAD Command: Array
-    * CAD Command: Offset
-    * CAD Command: Extend
-    * CAD Command: Trim
-    * CAD Command: BreakAtPoint
-    * CAD Command: Break2Points
-    * CAD Command: Fillet
-    * CAD Command: Chamfer
-    * CAD Command: Split
-    * CAD Command: Area
-    * CAD Command: Time
-    * CAD Command: PickAdd
-    * CAD Command: Product
-    * CAD Command: Program
-    * CAD Command: ZoomFactor
-    * CAD Command: GripHot
-    * CAD Command: GripColor and GripCool
-    * CAD Command: GripSize
-    * CAD Command: Highlight
-    * CAD Command: Units
-    * CAD Command: Grid
-    * CAD Command: Find
-    * CAD Command: Divide
-    * CAD Command: ZoomWindow (Move out of view.cpp)
-    * Command: Web (Generates Spiderweb patterns)
-    * Command: Guilloche (Generates Guilloche patterns)
-    * Command: Celtic Knots
-    * Command: Knotted Wreath
-    * Lego Mindstorms NXT/EV3 ports and/or commands.
-    * native function that flashes the command prompt to get users attention when using the prompt is required for a command.
-    * libembroidery-composer like app that combines multiple files into one.
-    * Settings Dialog, it would be nice to have it notify you when switching tabs that a setting has been changed. Adding an Apply button is what would make sense for this to happen.
-    * Keyboard Zooming/Panning
-    * G-Code format?
-    * 3D Raised Embroidery
-    * Gradient Filling Algorithms
-    * Stitching Simulation
-    * RPM packages?
-    * Reports?
-    * Record and Playback Commands
-    * Settings option for reversing zoom scrolling direction
-    * Qt GUI for libembroidery-convert
-    * EPS format? Look at using Ghostscript as an optional add-on to libembroidery...
-    * optional compile option for including LGPL/GPL libs etc... with warning to user about license requirements.
-    * Realistic Visualization - Bump Mapping/OpenGL/Gradients?
-    * Stippling Fill
-    * User Designed Custom Fill
-    * Honeycomb Fill
-    * Hilbert Curve Fill
-    * Sierpinski Triangle fill
-    * Circle Grid Fill
-    * Spiral Fill
-    * Offset Fill
-    * Brick Fill
-    * Trim jumps over a certain length.
-    * FAQ about setting high number of jumps for more controlled trimming.
-    * Minimum stitch length option. (Many machines also have this option too)
-    * Add 'Design Details' functionality to libembroidery-convert
-    * Add 'Batch convert many to one format' functionality to libembroidery-convert
-    * EmbroideryFLOSS - Color picker that displays catalog numbers and names.
-* beta
-    * Realistic Visualization - Bump Mapping/OpenGL/Gradients?
-    * Get undo history widget back (BUG).
-    * Mac Bundle, .tar.gz and .zip source archive.
-    * NSIS installer for Windows, Debian package, RPM package
-    * GUI frontend for embroider features that aren't supported by embroidermodder: flag selector from a table
-    * Update all formats without color to check for edr or rgb files.
-    * Setting for reverse scrolling direction (for zoom, vertical pan)
-    * Keyboard zooming, panning
-    * New embroidermodder2.ico 16x16 logo that looks good at that scale.
-    * Saving dst, pes, jef.
-    * Settings dialog: notify when the user is switching tabs that the setting has been changed, adding apply button is what would make sense for this to happen.
-    * Update language translations.
-    * Replace KDE4 thumbnailer.
-    * Import raster image.
-    * Statistics from 1.0, needs histogram.
-    * SNAP/ORTHO/POLAR.
-    * Cut/copy allow post-selection.
-    * Layout into config.
-    * Notify user of data loss if not saving to an object format.
-    * Add which formats to work with to preferences.
-    * Cannot open file with `\#` in the name when opening multiple files but works with opening a single file.
-    * Closing settings dialog with the X in the window saves settings rather than discarding them.
-    * Otto theme icons: units, render, selectors, what's this icon doesn't scale.
-    * Layer manager and Layer switcher dock widget.
-    * Test that all formats read data in correct scale (format details should match other programs).
-    * Custom filter bug -- doesn't save changes in some cases.
-    * Tools to find common problems in the source code and suggest fixes to the developers. For example, a translation miss: that is, for any language other than English a missing entry in the translation table should supply a clear warning to developers.
-    * Converting Qt C++ version to native GUI C throughout.
-    * OpenGL Rendering: `Real` rendering to see what the embroidery looks like, Icons and toolbars, Menu bar.
-    * Libembroidery interfacing: get all classes to use the proper libembroidery types within them. So `Ellipse` has `EmbEllipse` as public data within it.
-    * Move calculations of rotation and scaling into `EmbVector` calls.
-    * GUI frontend for embroider features that aren't supported by embroidermodder: flag selector from a table
-    * Update all formats without color to check for edr or rgb files.
-    * Setting for reverse scrolling direction (for zoom, vertical pan)
-    * Keyboard zooming, panning
-    * Better integrated help: I don't think the help should backend to a html file somewhere on the user's system. A better system would be a custom widget within the program that's searchable.
-    * New embroidermodder2.ico 16x16 logo that looks good at that scale.
-    * Settings dialog: notify when the user is switching tabs that the setting has been changed, adding apply button is what would make sense for this to happen.
-    
-\chapter{To Do}
-
-These should be sorted into relevant code sections.
+\chapter{Planning}
 
 \subsection{Current work}
 
@@ -1681,13 +1363,31 @@ These should be sorted into relevant code sections.
 \item Switching away from Doxygen-style in favour of direct commentary and a custom written reference manual.
 \end{itemize}
 
-\subsection{Documentation}
+\subsection{Arduino To-Do}
+
+\begin{itemize}
+\item Fix emb-outline files
+\item Fix thread-color files
+\item Logging of Last Stitch Location to External USB Storage(commonly available and easily replaced), wait until TRE is available to avoid rework
+\item inotool.org - seems like the logical solution for Nightly/CI builds
+\item Smoothieboard experiments
+\end{itemize}
+
+\subsection{libembroidery-tests To-Do}
+
+\begin{itemize}
+\item looping test that reads 10 times while running valgrind. See \texttt{embPattern\_loadExternalColorFile()} Arduino leak note for more info.
+\end{itemize}
+
+\subsection{Documentation To-Do}
 
 \begin{itemize}
 \item Document all tests.
 \item Automation of tests.
 \item Ensure that the stitch count matches what we know the file has
 \end{itemize}
+
+\section{Embroidermodder and Libembroidery To-Do}
 
 \subsection{2.0 alpha1}
 
@@ -1711,6 +1411,7 @@ These should be sorted into relevant code sections.
 
 \begin{itemize}
 \item Writing DXF
+\item Up and Down keys cycle thru commands in the command prompt
 \item Amount of Thread and Machine Time Estimation (also allow customizable times for setup, color changes, manually trimming jump threads, etc. that way a realistic total time can be estimated)
 \item Otto Theme Icons - whatsthis icon doesn't scale well, needs redone
 \item embroidermodder2.ico 16 x 16 looks horrible
@@ -1737,6 +1438,7 @@ These should be sorted into relevant code sections.
 \subsection{2.0 rc1}
 
 \begin{itemize}
+\item QDoc Comments
 \item Review KDE4 Thumbnailer
 \item Documentation for libembroidery and formats
 \item HTML Help files
@@ -1766,7 +1468,8 @@ These should be sorted into relevant code sections.
 \item tar.gz archive
 \item zip archive
 \item Debian Package (rt)
-\item NSIS Installer (rt)
+\item NSIS Installer for Windows (rt)
+\item RPM package
 \item Mac Bundle?
 \item press release
 \end{itemize}
@@ -1774,8 +1477,51 @@ These should be sorted into relevant code sections.
 \subsection{2.x/Ideas}
 
 \begin{itemize}
-\item libembroidery.mk for MXE project (refer to qt submodule packages for qmake based building. Also refer to plibc.mk for example of how write an update macro for github.)
-\item libembroidery safeguard for all writers - check if the last stitch is an END stitch. If not, add an end stitch in the writer and modify the header data if necessary.
+\item Cut/copy allow post-selection.
+\item Layout into config.
+\item beta
+\item Get undo history widget back (BUG).
+\item GUI frontend for embroider features that aren't supported by embroidermodder: flag selector from a table
+\item Update all formats without color to check for edr or rgb files.
+\item Setting for reverse scrolling direction (for zoom, vertical pan)
+\item New embroidermodder2.ico 16x16 logo that looks good at that scale.
+\item Saving dst, pes, jef.
+\item Trim jumps over a certain length.
+\item FAQ about setting high number of jumps for more controlled trimming.
+\item Minimum stitch length option. (Many machines also have this option too)
+\item Add 'Design Details' functionality to libembroidery-convert
+\item Add 'Batch convert many to one format' functionality to libembroidery-convert
+\item EmbroideryFLOSS - Color picker that displays catalog numbers and names.
+\item Settings dialog: notify when the user is switching tabs that the setting has been changed, adding apply button is what would make sense for this to happen.
+\item Update language translations.
+\item Replace KDE4 thumbnailer.
+\item Import raster image.
+\item Notify user of data loss if not saving to an object format.
+\item Add which formats to work with to preferences.
+\item Cannot open file with `\#` in the name when opening multiple files but works with opening a single file.
+\item Closing settings dialog with the X in the window saves settings rather than discarding them.
+\item Otto theme icons: units, render, selectors, what's this icon doesn't scale.
+\item Layer manager and Layer switcher dock widget.
+\item Test that all formats read data in correct scale (format details should match other programs).
+\item Custom filter bug -- doesn't save changes in some cases.
+\item Tools to find common problems in the source code and suggest fixes to the developers. For example, a translation miss: that is, for any language other than English a missing entry in the translation table should supply a clear warning to developers.
+\item Converting Qt C++ version to native GUI C throughout.
+\item OpenGL Rendering: `Real` rendering to see what the embroidery looks like, Icons and toolbars, Menu bar.
+\item Libembroidery interfacing: get all classes to use the proper libembroidery types within them. So `Ellipse` has `EmbEllipse` as public data within it.
+\item Move calculations of rotation and scaling into `EmbVector` calls.
+\item GUI frontend for embroider features that aren't supported by embroidermodder: flag selector from a table
+\item Update all formats without color to check for edr or rgb files.
+\item Setting for reverse scrolling direction (for zoom, vertical pan)
+\item Better integrated help: I don't think the help should backend to a html file somewhere on the user's system. A better system would be a custom widget within the program that's searchable.
+\end{itemize}
+
+\begin{itemize}
+\item libembroidery.mk for MXE project (refer to qt submodule packages for qmake based
+    building. Also refer to plibc.mk for example of how write an update macro for
+    github.)
+\item libembroidery safeguard for all writers - check if the last stitch is an END
+    stitch. If not, add an end stitch in the writer and modify the header data if
+    necessary.
 \item Cut/Copy - Allow Post-selection
 \item CAD Command: Array
 \item CAD Command: Offset
@@ -1806,11 +1552,12 @@ These should be sorted into relevant code sections.
 \item Command: Celtic Knots
 \item Command: Knotted Wreath
 \item Lego Mindstorms NXT/EV3 ports and/or commands.
-\item native function that flashes the command prompt to get users attention when using the
-prompt is required for a command.
+\item native function that flashes the command prompt to get users attention when
+    using the prompt is required for a command.
 \item libembroidery-composer like app that combines multiple files into one.
-\item Settings Dialog, it would be nice to have it notify you when switching tabs that a
-setting has been changed. Adding an Apply button is what would make sense for this to happen.
+\item Settings Dialog, it would be nice to have it notify you when switching tabs that
+    a setting has been changed. Adding an Apply button is what would make sense for
+    this to happen.
 \item Keyboard Zooming/Panning
 \item G-Code format?
 \item 3D Raised Embroidery
@@ -1822,7 +1569,8 @@ setting has been changed. Adding an Apply button is what would make sense for th
 \item Settings option for reversing zoom scrolling direction
 \item Qt GUI for libembroidery-convert
 \item EPS format? Look at using Ghostscript as an optional add-on to libembroidery
-\item optional compile option for including LGPL/GPL libs etc. with warning to user about license requirements.
+\item optional compile option for including LGPL/GPL libs etc. with warning to user
+    about license requirements.
 \item Realistic Visualization - Bump Mapping/OpenGL/Gradients?
 \item Stippling Fill
 \item User Designed Custom Fill
@@ -1842,39 +1590,10 @@ setting has been changed. Adding an Apply button is what would make sense for th
 \item emscripten/javascript port of libembroidery
 \end{itemize}
 
-\subsection{Arduino}
-
-\begin{itemize}
-\item Fix emb-outline files
-\item Fix thread-color files
-\item Logging of Last Stitch Location to External USB Storage(commonly available and easily replaced), wait until TRE is available to avoid rework
-\item inotool.org - seems like the logical solution for Nightly/CI builds
-\item Smoothieboard experiments
-\end{itemize}
-
 \subsection{libembroidery-tests}
 
 \begin{itemize}
-\item looping test that reads 10 times while running valgrind. See ``embPattern\_loadExternalColorFile()`` Arduino leak note for more info.
-
 \item todo sort todo list.
-\item Alpha: High priority
-  \item Statistics from 1.0, needs histogram
-  \item Saving DST/PES/JEF (varga)
-  \item Saving CSV/SVG (rt) + CSV read/write UNKNOWN interpreted as COLOR bug
-\item Alpha: medium priority
-  \item Notify user of data loss if not saving to an object format.
-  \item Import Raster Image
-  \item SNAP/ORTHO/POLAR
-  \item Layer Manager + LayerSwitcher DockWidget
-  \item Reading DXF
-\item Alpha: low priority
-  \item Writing DXF\item Up and Down keys cycle thru commands in the command prompt
-  \item Amount of Thread, Machine Time Estimation (also allow customizable times for setup, color changes, manually trimming jump threads, etc...that way a realistic total time can be estimated)
-  \item Otto Theme Icons - whatsthis icon doesn't scale well, needs redone
-  \item embroidermodder2.ico 16 x 16 looks horrible
-\item Alpha: lower priority
-  \item CAD Command: Arc (rt)
 \item beta
   \item Custom Filter Bug - doesn't save changes in some cases
   \item Cannot open file with `\#` in name when opening multiple files (works fine when opening the single file)
@@ -2016,29 +1735,6 @@ setting has been changed. Adding an Apply button is what would make sense for th
   \item New embroidermodder2.ico 16x16 logo that looks good at that scale.
   \item Settings dialog: notify when the user is switching tabs that the setting has been changed, adding apply button is what would make sense for this to happen.
 \end{itemize}
-
-\chapter{Introduction}
-
-The \emph{Embroidermodder 2} project is a collection of small software utilities for
-manipulating, converting and creating embroidery files in all major embroidery
-machine formats. The program \textit{Embroidermodder 2} itself is a larger graphical
-user interface (GUI) which is at the heart of the project.
-
-This manual, the website (`embroidermodder.org`), mobile embroidery format viewers
-and tools (`iMobileViewer`, `MobileViewer`), the core library of functions
-(`libembroidery`) and CLI (`embroider`) are all tools to make the standard
-user experience of working with an embroidery machine better without expensive
-software which is locked to specific manufacturers and formats. But ultimately
-we hope that the core \textit{Embroidermodder 2} is a practical, ever-present tool in
-larger workshops, small cottage industry workshops and personal hobbyist's
-bedrooms.
-
-Embroidermodder 2 is licensed under the zlib license and we aim to keep all of
-our tools open source and free of charge. If you would like to support the
-project check out our Open Collective group. If you would like to help, please
-join us on GitHub. This document is written as developer training as well
-helping new users (see the last sections) so this is the place to learn how
-to start changing the code.
 
 \chapter{The Graphical User Interface: Embroidermodder 2.0.0-alpha}
 
@@ -2658,15 +2354,12 @@ These are key bits of reasoning behind why the software is built the way it is.
 
 %cad_desc.csv
 
-\begin{verbatim}
-
 \newcommand{\indexi}[1]{\index{#1}#1}
 \newcommand{\indext}[1]{\index{#1}\texttt{#1}}
 
-
 A CAD command\indext{CAD}\indext{command} in Embroidermodder is referred to as
 an \emph{action}\indext{action} and the data needed for it to function is stored
-in the \indext{``action_table``}. For a regular user who wishes to use
+in the \indext{\texttt{action\_table}}. For a regular user who wishes to use
 more shortcuts and macros
 
 \begin{longtable}{p{1cm} p{2.5cm} p{2cm} p{7cm}}
@@ -2721,12 +2414,12 @@ selected stitches &
 Sets the flag for the stitches selected to \texttt{TRIM}. \\
 
 8 &
-\indext{``break_at_point``} & 
+\indext{``break\_at\_point``} & 
 &
 \\
 
 9 &
-\indext{``break_2_points``} &
+\indext{``break\_2\_points``} &
 &
 \\
 
@@ -2941,70 +2634,71 @@ None &
 \hline
 0 & newfile & none & Create a new EmbPattern with a new tab in the GUI. \\
 1 & openfile & filename string & Open an EmbPattern with the supplied filename `fname`. \\
-| 2 | savefile | filename string | Save the current loaded EmbPattern to the supplied filname `fname`. |
-| 3 | scale | selected objects, 1 float | Scale all selected objects by the number supplied, without selection scales the entire design |
-| 4 | circle | mouse co-ords | Adds a circle to the design based on the supplied numbers, converts to stitches on save for stitch only formats. |
-| 5 | offset | mouse co-ords | Shifts the selected objects by the amount given by the mouse co-ordinates. |
-| 6 | extend | | |
-| 7 | trim | | |
-| 8 | ``break_at_point`` | | |
-| 9 | ``break_2_points`` | | |
-| 10 | fillet | | |
-| 11 | star | | |
-| 12 | singlelinetext | | |
-| 13 | chamfer | | |
-| 14 | split | | |
-| 15 | area | | |
-| 16 | time | | |
-| 17 | pickadd | | |
-| 16 | zoomfactor | | |
-| 17 | product | | |
-| 18 | program | | |
-| 19 | zoomwindow | | |
-| 20 | divide | | |
-| 21 | find | | |
-| 22 | record | | |
-| 23 | playback | | |
-| 24 | rotate | | |
-| 25 | rgb | | |
-| 26 | move | | |
-| 27 | grid | | |
-| 28 | griphot |  | |
-| 29 | gripcolor | | |
-| 30 | gripcool |  | |
-| 31 | gripsize |  | |
-| 32 | highlight |  | |
-| 33 | units |  | |
-| 34 | locatepoint |  | |
-| 35 | distance |  | |
-| 36 | arc |  | |
-| 37 | ellipse |  | |
-| 38 | array |  | |
-| 39 | point |  | |
-| 40 | polyline |  | |
-| 41 | polygon |  | |
-| 42 | rectangle |  | |
-| 43 | line |  | |
-| 44 | arc (rt) |  | |
-| 45 | dolphin |  | |
-| 46 | heart |  |
+2 & savefile & filename string & Save the current loaded EmbPattern to the supplied filname `fname`. \\
+3 & scale & selected objects, 1 float & Scale all selected objects by the number supplied, without selection scales the entire design \\
+4 & circle & mouse co-ords & Adds a circle to the design based on the supplied numbers, converts to stitches on save for stitch only formats. \\
+5 & offset & mouse co-ords & Shifts the selected objects by the amount given by the mouse co-ordinates. \\
+6 & extend & & \\
+7 & trim & & \\
+8 & ``break\_at\_point`` & & \\
+9 & ``break\_2\_points`` & & \\
+10 & fillet & & \\
+11 & star & & \\
+12 & singlelinetext & & \\
+13 & chamfer & & \\
+14 & split & & \\
+15 & area & & \\
+16 & time & & \\
+17 & pickadd & & \\
+16 & zoomfactor & & \\
+17 & product & & \\
+18 & program & & \\
+19 & zoomwindow & & \\
+20 & divide & & \\
+21 & find & & \\
+22 & record & & \\
+23 & playback & & \\
+24 & rotate & & \\
+25 & rgb & & \\
+26 & move & & \\
+27 & grid & & \\
+28 & griphot & & \\
+29 & gripcolor & & \\
+30 & gripcool & & \\
+31 & gripsize & & \\
+32 & highlight & & \\
+33 & units & & \\
+34 & locatepoint & & \\
+35 & distance & & \\
+36 & arc & & \\
+37 & ellipse & & \\
+38 & array & & \\
+39 & point & & \\
+40 & polyline & & \\
+41 & polygon & & \\
+42 & rectangle & & \\
+43 & line & & \\
+44 & arc (rt) & & \\
+45 & dolphin & & \\
+46 & heart |
 \end{tabular}
 
-"*Format*", "*Ratings* | *Score*  |
-   | Toyota   | rw-basic doc-none  | unstable | 
-   | (.100)  | test-none | |
-   | 100  | NO, NO | none (4 byte codes)  |
-   | |  | 61 00 10 09 (type, type2, |
-   | |  | x, y ?) x and y (signed char) |
-   "art  | NO, NO | none  |
-   | Toyota   | rw-basic doc-none  | unstable.   |
-   | (.10o)  | test-none | read (fix  external color  |
-   | |  | loading) (maybe find out what |
-   | |  | ctrl and code flags of `0x10`,|
-   | |  | `0x08`, `0x04`, and `0x02` |
-   | |  | mean) |
-   | Bernina  | rw-none doc-none   | experimental   |
-   | (.art)  | test-none | |
+\begin{verbatim}
+"*Format*", "*Ratings* & *Score*  |
+   & Toyota   & rw-basic doc-none  & unstable & 
+   & (.100)  & test-none & |
+   & 100  & NO, NO & none (4 byte codes)  |
+   & &  & 61 00 10 09 (type, type2, |
+   & &  & x, y ?) x and y (signed char) |
+   "art  & NO, NO & none  |
+   & Toyota   & rw-basic doc-none  & unstable.   |
+   & (.10o)  & test-none & read (fix  external color  |
+   & &  & loading) (maybe find out what |
+   & &  & ctrl and code flags of `0x10`,|
+   & &  & `0x08`, `0x04`, and `0x02` |
+   & &  & mean) |
+   & Bernina  & rw-none doc-none   & experimental   |
+   & (.art)  & test-none & |
 "Bitmap Cache (.bmc)", "r-basic w-none doc-none test-none", "unstable" 
 "Bits and Volts (.bro)", "rw-none doc-none test-none", "experimental"
 "Melco (.cnd)", "rw-none doc-none  test-none", "experimental"
@@ -3042,176 +2736,175 @@ None &
 "Brother (.pec)", "rw-none doc-none test-none", "experimental"
 "Brother (.pel)", "rw-none doc-none test-none", "experimental"
 
-   "Brother (.pem)", "rw-none doc-none test-none | experimental"
-   "Brother (.pes)", "rw-none doc-none test-none | experimental"
-   "Brother (.phb)", "rw-none doc-none test-none | experimental"
-   "Brother  (.phc) | rw-none doc-none test-none | experimental
-   "AutoCAD  (.plt) | rw-none doc-none test-none | experimental
-   "RGB  (.rgb) | rw-none doc-none test-none | experimental
-   "Janome  (.sew) | rw-none doc-none test-none | experimental
-   "Husqvarna Viking  (.shv) | rw-none doc-none test-none | experimental
-   "Sunstar  (.sst) | rw-none doc-none test-none | experimental
-   "Data Stitch  (.stx) | rw-none doc-none test-none , "experimental"
-   | Scalable Vector Graphics (.svg) | rw-none doc-none test-none | experimental
-   | Pfaff  (.t01) | rw-none doc-none test-none | experimental
-   | Pfaff  (.t09) | rw-none doc-none test-none | experimental
-   | Happy  (.tap) | rw-none doc-none test-none | experimental
-   | ThredWorks  (`.thr`) | rw-none doc-none test-none | experimental
-   | Text File (`.txt`) | rw-none doc-none test-none | experimental
-   | Barudan  (`.u00`) | rw-none doc-none test-none   | experimental
-   | Barudan  (\index{u01}`.u01`) | rw-none doc-none test-none , "experimental"
-   | Pfaff  (`.vip`) | rw-none doc-none test-none , "experimental"
-   | Pfaff  (`.vp3`) | rw-none doc-none test-none , "experimental"
-   | Singer  (`.xxx`) | rw-none doc-none test-none , "experimental"
-   | ZSK USA  (`.zsk`) | rw-none doc-none test-none , "experimental"
-   | *FORMAT* | *READ, WRITE* | *NOTES* |
-   "bro | YES NO | read (complete)(maybe figure out detail of header) |
-   "cnd | NO, NO | none |
-   "col | NO, NO | (color file no design) read(final) write(final) |
-   "csd | YES NO | read (complete) |
-   "dat | NO, NO | read () |
-   "dem | NO, NO | none (looks like just encrypted cnd) |
-   "dsb | YES NO | read (unknown how well) (stitch data looks same as 10o) |
-   "dst | YES NO | read (complete) / write(unknown) |
-   "dsz | YES NO | read (unknown) |
+   "Brother (.pem)", "rw-none doc-none test-none & experimental"
+   "Brother (.pes)", "rw-none doc-none test-none & experimental"
+   "Brother (.phb)", "rw-none doc-none test-none & experimental"
+   "Brother  (.phc) & rw-none doc-none test-none & experimental
+   "AutoCAD  (.plt) & rw-none doc-none test-none & experimental
+   "RGB  (.rgb) & rw-none doc-none test-none & experimental
+   "Janome  (.sew) & rw-none doc-none test-none & experimental
+   "Husqvarna Viking  (.shv) & rw-none doc-none test-none & experimental
+   "Sunstar  (.sst) & rw-none doc-none test-none & experimental
+   "Data Stitch  (.stx) & rw-none doc-none test-none , "experimental"
+   & Scalable Vector Graphics (.svg) & rw-none doc-none test-none & experimental
+   & Pfaff  (.t01) & rw-none doc-none test-none & experimental
+   & Pfaff  (.t09) & rw-none doc-none test-none & experimental
+   & Happy  (.tap) & rw-none doc-none test-none & experimental
+   & ThredWorks  (`.thr`) & rw-none doc-none test-none & experimental
+   & Text File (`.txt`) & rw-none doc-none test-none & experimental
+   & Barudan  (`.u00`) & rw-none doc-none test-none   & experimental
+   & Barudan  (\index{u01}`.u01`) & rw-none doc-none test-none , "experimental"
+   & Pfaff  (`.vip`) & rw-none doc-none test-none , "experimental"
+   & Pfaff  (`.vp3`) & rw-none doc-none test-none , "experimental"
+   & Singer  (`.xxx`) & rw-none doc-none test-none , "experimental"
+   & ZSK USA  (`.zsk`) & rw-none doc-none test-none , "experimental"
+   & *FORMAT* & *READ, WRITE* & *NOTES* |
+   "bro & YES NO & read (complete)(maybe figure out detail of header) |
+   "cnd & NO, NO & none |
+   "col & NO, NO & (color file no design) read(final) write(final) |
+   "csd & YES NO & read (complete) |
+   "dat & NO, NO & read () |
+   "dem & NO, NO & none (looks like just encrypted cnd) |
+   "dsb & YES NO & read (unknown how well) (stitch data looks same as 10o) |
+   "dst & YES NO & read (complete) / write(unknown) |
+   "dsz & YES NO & read (unknown) |
    +----------------------+--------------------+------------------+
-   "dxf | NO, NO | read (Port to C. needs refactored) |
+   "dxf & NO, NO & read (Port to C. needs refactored) |
    +----------------------+--------------------+------------------+
-   "edr | NO, NO | read (C version is broken) / write (complete) |
+   "edr & NO, NO & read (C version is broken) / write (complete) |
    +----------------------+--------------------+------------------+
-   "emd | NO, NO | read (unknown)   |
+   "emd & NO, NO & read (unknown)   |
    +----------------------+--------------------+------------------+
-   "exp | YES NO | read (unknown) / write(unknown) |
+   "exp & YES NO & read (unknown) / write(unknown) |
    +----------------------+--------------------+------------------+
-   "exy | YES NO | read (need to fix external color loading) |
+   "exy & YES NO & read (need to fix external color loading) |
    +----------------------+--------------------+------------------+
-   "fxy | YES NO | read (need to fix external color loading) |
+   "fxy & YES NO & read (need to fix external color loading) |
    +----------------------+--------------------+------------------+
-   "gnc | NO, NO | none |
+   "gnc & NO, NO & none |
    +----------------------+--------------------+------------------+
-   "gt | NO, NO | read (need to fix external color loading)
+   "gt & NO, NO & read (need to fix external color loading)
    +----------------------+--------------------+------------------+
-   "hus | YES NO | read (unknown) / write (C version is broken)
+   "hus & YES NO & read (unknown) / write (C version is broken)
    +----------------------+--------------------+------------------+
-   "inb | YES NO | read (buggy?)
+   "inb & YES NO & read (buggy?)
    +----------------------+--------------------+------------------+
-   "jef | YES NO | write (need to fix the offsets when it is moving to another spot)
+   "jef & YES NO & write (need to fix the offsets when it is moving to another spot)
    +----------------------+--------------------+------------------+
-   "ksm | YES NO | read (unknown) / write (unknown)
+   "ksm & YES NO & read (unknown) / write (unknown)
    +----------------------+--------------------+------------------+
    "pcd", "NO, NO", ""
    "pcm", "NO, NO", ""
    "pcq", "NO, NO", "read (Port to C)"
    +----------------------+--------------------+------------------+
-   | pcs | BUGGY, NO | read (buggy / colors are not correct / after reading, writing any other format is messed up)
+   & pcs & BUGGY, NO & read (buggy / colors are not correct / after reading, writing any other format is messed up)
    +----------------------+--------------------+------------------+
-   | pec   | NO, NO | read / write (without embedded images, sometimes overlooks some stitches leaving a gap)
+   & pec   & NO, NO & read / write (without embedded images, sometimes overlooks some stitches leaving a gap)
    +----------------------+--------------------+------------------+
-   | pel   | NO, NO | none |
+   & pel   & NO, NO & none |
    +----------------------+--------------------+------------------+
-   | pem   | NO, NO | none |
+   & pem   & NO, NO & none |
    +----------------------+--------------------+------------------+
-   | pes   | YES, NO   |   |
+   & pes   & YES, NO   &   |
    +----------------------+--------------------+------------------+
-   | phb   | NO, NO   |   |
+   & phb   & NO, NO   &   |
    +----------------------+--------------------+------------------+
-   | phc   | NO, NO   |   |
+   & phc   & NO, NO   &   |
    +----------------------+--------------------+------------------+
-   | rgb   | NO, NO   |   |
+   & rgb   & NO, NO   &   |
    +----------------------+--------------------+------------------+
-   | sew | YES, NO   |   |
+   & sew & YES, NO   &   |
    +----------------------+--------------------+------------------+
-   | shv | NO, NO | read (C version is broken) |
+   & shv & NO, NO & read (C version is broken) |
    +----------------------+--------------------+------------------+
-   | sst | NO, NO | none |
+   & sst & NO, NO & none |
    +----------------------+--------------------+------------------+
-   | svg | NO, YES   |   |
+   & svg & NO, YES   &   |
    +----------------------+--------------------+------------------+
-   | tap | YES, NO | read (unknown) |
+   & tap & YES, NO & read (unknown) |
    +----------------------+--------------------+------------------+
-   | u01 | NO, NO   |   |
+   & u01 & NO, NO   &   |
    +----------------------+--------------------+------------------+
-   | vip | YES, NO   |   |
+   & vip & YES, NO   &   |
    +----------------------+--------------------+------------------+
-   | vp3 | YES, NO   |   |
+   & vp3 & YES, NO   &   |
    +----------------------+--------------------+------------------+
-   | xxx | YES, NO   |   |
+   & xxx & YES, NO   &   |
    +----------------------+--------------------+------------------+
-   | zsk | NO, NO | read (complete) |
+   & zsk & NO, NO & read (complete) |
    +----------------------+--------------------+------------------+
    
    
    +--------+-------+-------+--------------+
-   | FORMAT | READ  | WRITE | NOTES        |
+   & FORMAT & READ  & WRITE & NOTES        |
    +--------+-------+-------+--------------+
-   | 10o    | YES   |       | read (need to fix external color loading) (maybe find out what ctrl\| code flags of 0x10, 0x08, 0x04, and 0x02 mean) |
+   & 10o    & YES   &       & read (need to fix external color loading) (maybe find out what ctrl\| code flags of 0x10, 0x08, 0x04, and 0x02 mean) |
    +--------+-------+-------+--------------+
-   | 100    |       |       | none (4 byte codes) 61 00 10 09 (type, type2, x, y ?) x | y (signed char) |
+   & 100    &       &       & none (4 byte codes) 61 00 10 09 (type, type2, x, y ?) x & y (signed char) |
    +--------+-------+-------+--------------+
-   | art    |       |       | none |
+   & art    &       &       & none |
    +--------+-------+-------+--------------+
-   | bro    | YES   |       | read (complete)(maybe figure out detail of header) |
+   & bro    & YES   &       & read (complete)(maybe figure out detail of header) |
    +--------+-------+-------+--------------+
-   | cnd    |       |       | none |
+   & cnd    &       &       & none |
    +--------+-------+-------+--------------+
-   | col    |       |       | (color file no design) read(final) write(final) |
+   & col    &       &       & (color file no design) read(final) write(final) |
    +--------+-------+-------+--------------+
-   | csd    | YES   |       | read (complete) |
+   & csd    & YES   &       & read (complete) |
    +--------+-------+-------+--------------+
-   | dat    |       |       | read () |
+   & dat    &       &       & read () |
    +--------+-------+-------+--------------+
-   | dem    |       |       | none (looks like just encrypted cnd) |
+   & dem    &       &       & none (looks like just encrypted cnd) |
    +--------+-------+-------+--------------+
-   | dsb    | YES   |       | read (unknown how well) (stitch data looks same as 10o) |
+   & dsb    & YES   &       & read (unknown how well) (stitch data looks same as 10o) |
    +--------+-------+-------+--------------+
-   | dst    | YES   |       | read (complete) / write(unknown) |
+   & dst    & YES   &       & read (complete) / write(unknown) |
    +--------+-------+-------+--------------+
-   | dsz    | YES   |       | read (unknown) |
+   & dsz    & YES   &       & read (unknown) |
    +--------+-------+-------+--------------+
-   | dxf    |       |       | read (Port to C. needs refactored) |
+   & dxf    &       &       & read (Port to C. needs refactored) |
    +--------+-------+-------+--------------+
-   | edr    |       |       | read (C version is broken) / write (complete) |
+   & edr    &       &       & read (C version is broken) / write (complete) |
    +--------+-------+-------+--------------+
-   | emd    |       |       | read (unknown) |
+   & emd    &       &       & read (unknown) |
    +--------+-------+-------+--------------+
-   | exp    | YES   |       | read (unknown) / write(unknown) |
+   & exp    & YES   &       & read (unknown) / write(unknown) |
    +--------+-------+-------+--------------+
-   | exy    | YES   |       | read (need to fix external color loading) |
+   & exy    & YES   &       & read (need to fix external color loading) |
    +--------+-------+-------+--------------+
-   | fxy    | YES   |       | read (need to fix external color loading) |
+   & fxy    & YES   &       & read (need to fix external color loading) |
    +--------+-------+-------+--------------+
-   | gnc    |       |       | none |
+   & gnc    &       &       & none |
    +--------+-------+-------+--------------+
-   | gt     |       |       | read (need to fix external color loading) |
+   & gt     &       &       & read (need to fix external color loading) |
    +--------+-------+-------+--------------+
-   | hus    | YES   |       | read (unknown) / write (C version is broken) |
-   | inb    | YES   |       | read (buggy?) |
-   | jef    | YES   |       | write (need to fix the offsets when it is moving to another spot) |
-   | ksm    | YES   |       | read (unknown) / write (unknown) |
-   | pcd    |       |       |  |
-   | pcm    |       |       | |
-   | pcq    |       |       | read (Port to C)|
-   | pcs    | BUGGY |       | read (buggy / colors are not correct / after reading, writing any other format is messed up)|
-   | pec    |       |       | read / write (without embedded images, sometimes overlooks some stitches leaving a gap)|
-   | pel    |       |       | none|
-   | pem    |       |       | none|
-   | pes    | YES   |       | |
-   | phb    |       |       | |
-   | phc    |       |       | |
-   | rgb    |       |       | |
-   | sew    | YES   |       | |
-   | shv    |       |       | read (C version is broken)|
-   | sst    |       |       | none|
-   | svg    |       | YES   | |
-   | tap    | YES   |       | read (unknown)|
-   | u01    |       |       | |
-   | vip    | YES   |       | |
-   | vp3    | YES   |       | |
-   | xxx    | YES   |       | |
-   | zsk    |       |       | read (complete) |
+   & hus    & YES   &       & read (unknown) / write (C version is broken) |
+   & inb    & YES   &       & read (buggy?) |
+   & jef    & YES   &       & write (need to fix the offsets when it is moving to another spot) |
+   & ksm    & YES   &       & read (unknown) / write (unknown) |
+   & pcd    &       &       &  |
+   & pcm    &       &       & |
+   & pcq    &       &       & read (Port to C)|
+   & pcs    & BUGGY &       & read (buggy / colors are not correct / after reading, writing any other format is messed up)|
+   & pec    &       &       & read / write (without embedded images, sometimes overlooks some stitches leaving a gap)|
+   & pel    &       &       & none|
+   & pem    &       &       & none|
+   & pes    & YES   &       & |
+   & phb    &       &       & |
+   & phc    &       &       & |
+   & rgb    &       &       & |
+   & sew    & YES   &       & |
+   & shv    &       &       & read (C version is broken)|
+   & sst    &       &       & none|
+   & svg    &       & YES   & |
+   & tap    & YES   &       & read (unknown)|
+   & u01    &       &       & |
+   & vip    & YES   &       & |
+   & vp3    & YES   &       & |
+   & xxx    & YES   &       & |
+   & zsk    &       &       & read (complete) |
    +--------+------+-------+-------+
 \end{verbatim}
-
 
 \subsection{Removed Elements}
 
@@ -3224,7 +2917,7 @@ can effect people who use our software.
 Downloading and installing Qt has been a pain for some users
 (46Gb on possibly slow connections).
 
-I'm switching to FreeGLUT 3 (which is a whole other conversation) which means we
+I'm switching to OpenGL with GLFW for the windowing which means we
 can ship it with the source code package meaning only a basic build
 environment is necessary to build it.
 
@@ -4142,11 +3835,7 @@ as the command line program `embroider`.
 
 \chapter{CAD Command Overview}
 
-.. literalinclude:: cad\_review.csv
-
-\section{Actions}
-
-\subsection{ABOUT}
+\section{ABOUT}
 \index{action}
 
 \begin{center}
@@ -4156,7 +3845,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-ARC}
+\section{ADD-ARC}
 \index{action}
 
 \begin{center}
@@ -4166,7 +3855,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-CIRCLE}
+\section{ADD-CIRCLE}
 \index{ADD-CIRCLE}
 
 \begin{center}
@@ -4176,7 +3865,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-DIM-LEADER}
+\section{ADD-DIM-LEADER}
 \index{ADD-DIM-LEADER}
 
 \begin{center}
@@ -4186,7 +3875,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-ELLIPSE}
+\section{ADD-ELLIPSE}
 \index{ADD-ELLIPSE}
 
 \begin{center}
@@ -4196,7 +3885,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-GEOMETRY}
+\section{ADD-GEOMETRY}
 \index{ADD-GEOMETRY}
 
 \begin{center}
@@ -4206,7 +3895,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-HORIZONTAL-DIMENSION}
+\section{ADD-HORIZONTAL-DIMENSION}
 \index{ADD-HORIZONTAL-DIMENSION}
 
 \begin{center}
@@ -4216,7 +3905,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-IMAGE}
+\section{ADD-IMAGE}
 \index{ADD-IMAGE}
 
 \begin{center}
@@ -4226,7 +3915,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-INFINITE-LINE}
+\section{ADD-INFINITE-LINE}
 \index{ADD-INFINITE-LINE}
 
 \begin{center}
@@ -4236,7 +3925,7 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-LINE}
+\section{ADD-LINE}
 \index{ADD-LINE}
 
 \begin{center}
@@ -4246,771 +3935,770 @@ index & arguments & flags \\
 \end{tabular}
 \end{center}
 
-\subsection{ADD-PATH}
+\section{ADD-PATH}
 \index{ADD-PATH}
 
 index 10
 
-\subsection{ADD-POINT}
+\section{ADD-POINT}
 \index{ADD-POINT}
 
 index 11
 
-\subsection{ADD-POLYGON}
+\section{ADD-POLYGON}
 \index{ADD-POLYGON}
 
 index 12
 
-\subsection{ADD-POLYLINE}
+\section{ADD-POLYLINE}
 \index{ADD-POLYLINE}
 
 index 13
 
-\subsection{ADD-RAY}
+\section{ADD-RAY}
 \index{ADD-RAY}
 
 index 14
 
-\subsection{ADD-RECTANGLE}
+\section{ADD-RECTANGLE}
 \index{ADD-RECTANGLE}
 
 index 15
 
-\subsection{ADD-REGULAR-POLYGON}
+\section{ADD-REGULAR-POLYGON}
 \index{ADD-REGULAR-POLYGON}
 
 index 16
 
-\subsection{ADD-ROUNDED-RECTANGLE}
+\section{ADD-ROUNDED-RECTANGLE}
 \index{action}
 
 index 17
 
-\subsection{ADD-RUBBER}
+\section{ADD-RUBBER}
 \index{ADD-RUBBER}
 
 index 18
 
-\subsection{ADD-SLOT}
+\section{ADD-SLOT}
 \index{action}
 
 index 19
 
-\subsection{ADD-TEXT-MULTI}
+\section{ADD-TEXT-MULTI}
 \index{action}
 
 index 20
 
-\subsection{ADD-TEXT-SINGLE}
+\section{ADD-TEXT-SINGLE}
 \index{action}
 
 index 21
 
-\subsection{ADD-TO-SELECTION}
+\section{ADD-TO-SELECTION}
 \index{action}
 
 index 22
 
-\subsection{ADD-TRIANGLE}
+\section{ADD-TRIANGLE}
 \index{action}
 
 index 23
 
-\subsection{ADD-VERTICAL-DIMENSION}
+\section{ADD-VERTICAL-DIMENSION}
 \index{action}
 
 index 24
 
-\subsection{ALERT}
+\section{ALERT}
 \index{action}
 
 index 25
 
-\subsection{ALLOW-RUBBER}
+\section{ALLOW-RUBBER}
 \index{action}
 
 index 26
 
-\subsection{APPEND-HISTORY}
+\section{APPEND-HISTORY}
 \index{action}
 
 index 27
 
-\subsection{CALCULATE-ANGLE}
+\section{CALCULATE-ANGLE}
 \index{action}
 
 index 28
 
-\subsection{CALCULATE-DISTANCE}
+\section{CALCULATE-DISTANCE}
 \index{action}
 
 index 29
 
-\subsection{CHANGELOG}
+\section{CHANGELOG}
 \index{action}
 
 index 30
 
-\subsection{CLEAR-RUBBER}
+\section{CLEAR-RUBBER}
 \index{action}
 
 index 31
 
-\subsection{CLEAR-SELECTION}
+\section{CLEAR-SELECTION}
 \index{action}
 
 index 32
 
-\subsection{COPY}
+\section{COPY}
 \index{action}
 
 index 33
 
-\subsection{COPY-SELECTED}
+\section{COPY-SELECTED}
 \index{action}
 
 index 34
 
-\subsection{CUT}
+\section{CUT}
 \index{action}
 
 index 35
 
-\subsection{CUT-SELECTED}
+\section{CUT-SELECTED}
 \index{action}
 
 index 36
 
-\subsection{DAY}
+\section{DAY}
 \index{action}
 
 index 37
 
-\subsection{DEBUG}
+\section{DEBUG}
 \index{action}
 
 index 38
 
-\subsection{DELETE-SELECTED}
+\section{DELETE-SELECTED}
 \index{action}
 
 index 39
 
-\subsection{DESIGN-DETAILS}
+\section{DESIGN-DETAILS}
 \index{action}
 
 index 40
 
-\subsection{DO-NOTHING}
+\section{DO-NOTHING}
 \index{action}
 
 index 41
 
-\subsection{END}
+\section{END}
 \index{action}
 
 index 42
 
-\subsection{ERROR}
+\section{ERROR}
 \index{action}
 
 index 43
 
-\subsection{HELP}
+\section{HELP}
 \index{action}
 
 index 44
 
-\subsection{ICON}
+\section{ICON}
 \index{action}
 
 index 45
 
-\subsection{INIT}
+\section{INIT}
 \index{action}
 
 index 46
 
-\subsection{MESSAGEBOX}
+\section{MESSAGEBOX}
 \index{action}
 
 index 47, 3 char arrays deliminated by quotes Example Call
 
-\subsection{MIRROR-SELECTED}
+\section{MIRROR-SELECTED}
 \index{action}
 
 index 48
 
-\subsection{MOUSE-X}
+\section{MOUSE-X}
 \index{action}
 
 index 49
 
-\subsection{MOUSE-Y}
+\section{MOUSE-Y}
 \index{action}
 
 index 50
 
-\subsection{MOVE-SELECTED}
+\section{MOVE-SELECTED}
 \index{action}
 
 index 51
 
-\subsection{NEW}
+\section{NEW}
 \index{action}
 
 index 52
 
-\subsection{NIGHT}
+\section{NIGHT}
 \index{action}
 
 index 53
 
-\subsection{NUM-SELECTED}
+\section{NUM-SELECTED}
 \index{action}
 
 index 54
 
-\subsection{OPEN}
+\section{OPEN}
 \index{action}
 
 index 55
 
-\subsection{PAN}
+\section{PAN}
 \index{action}
 
 index 56
 
-\subsection{PASTE}
+\section{PASTE}
 \index{PASTE}
 
 index 57
 
-\subsection{PASTE-SELECTED}
+\section{PASTE-SELECTED}
 \index{PASTE-SELECTED}
 
 index 58
 
-\subsection{PERPENDICULAR-DISTANCE}
+\section{PERPENDICULAR-DISTANCE}
 \index{PERPENDICULAR-DISTANCE}
 
 index 59
 
-\subsection{PLATFORM}
+\section{PLATFORM}
 \index{PLATFORM}
 
 index 60
 
-\subsection{PREVIEW-OFF}
+\section{PREVIEW-OFF}
 \index{PREVIEW-OFF}
 
 index 61
 
-\subsection{PREVIEW-ON}
+\section{PREVIEW-ON}
 \index{PREVIEW-ON}
 
 index 62
 
-\subsection{PRINT}
+\section{PRINT}
 \index{PRINT}
 
 index 63
 
-\subsection{PRINT-AREA}
+\section{PRINT-AREA}
 \index{PRINT-AREA}
 
 index 64
 
-\subsection{QSNAP-X}
+\section{QSNAP-X}
 \index{QSNAP-X}
 
 index 65
 
-\subsection{QSNAP-Y}
+\section{QSNAP-Y}
 \index{QSNAP-Y}
 
 index 66
 
-\subsection{EXIT}
+\section{EXIT}
 \index{EXIT}
 
  index 67
 
-\subsection{REDO}
+\section{REDO}
 \index{REDO}
 
 index 68
 
-\subsection{ROTATE-SELECTED}
+\section{ROTATE-SELECTED}
 \index{ROTATE-SELECTED}
 
 index 69
 
-\subsection{RUBBER}
+\section{RUBBER}
 \index{RUBBER}
 
 index 70
 
-\subsection{SCALE-SELECTED}
+\section{SCALE-SELECTED}
 \index{SCALE-SELECTED}
 
 index 71
 
-\subsection{SELECT-ALL}
+\section{SELECT-ALL}
 \index{SELECT-ALL}
 
 index 72
 
-\subsection{SETTINGS-DIALOG}
+\section{SETTINGS-DIALOG}
 \index{action}
 
 index 73
 
-\subsection{SET-BACKGROUND-COLOR}
+\section{SET-BACKGROUND-COLOR}
 \index{action}
 
 index 74
 
-\subsection{SET-CROSSHAIR-COLOR}
+\section{SET-CROSSHAIR-COLOR}
 \index{action}
 
 index 75
 
-\subsection{SET-CURSOR-SHAPE}
+\section{SET-CURSOR-SHAPE}
 \index{action}
 
 index 76
 
-\subsection{SET-GRID-COLOR}
+\section{SET-GRID-COLOR}
 \index{action}
 
 index 77
 
-\subsection{SET-PROMPT-PREFIX}
+\section{SET-PROMPT-PREFIX}
 \index{action}
 
 index 78
 
-\subsection{SET-RUBBER-FILTER}
+\section{SET-RUBBER-FILTER}
 \index{action}
 
 index 79
 
-\subsection{SET-RUBBER-MODE}
+\section{SET-RUBBER-MODE}
 \index{action}
 
 index 80
 
-\subsection{SET-RUBBER-POINT}
+\section{SET-RUBBER-POINT}
 \index{action}
 
 index 81
 
-\subsection{SET-RUBBER-TEXT}
+\section{SET-RUBBER-TEXT}
 \index{action}
 
 index 82
 
-\subsection{SPARE-RUBBER}
+\section{SPARE-RUBBER}
 \index{action}
 
 index 83
 
-\subsection{TIP-OF-THE-DAY}
+\section{TIP-OF-THE-DAY}
 \index{action}
 
 index 84
 
-\subsection{TODO}
+\section{TODO}
 \index{action}
 
  index 85
 
-\subsection{UNDO}
+\section{UNDO}
 \index{action}
 
  index 86
 
-\subsection{VERSION}
+\section{VERSION}
 \index{action}
 
 index 87
 
-\subsection{VULCANIZE}
+\section{VULCANIZE}
 \index{action}
 
 index 88
 
-\subsection{WHATS-THIS}
+\section{WHATS-THIS}
 \index{action}
 
 index 89
 
-\subsection{WINDOW-CLOSE}
+\section{WINDOW-CLOSE}
 \index{action}
 
 index 90
 
-\subsection{WINDOW-CLOSE-ALL}
+\section{WINDOW-CLOSE-ALL}
 \index{action}
 
 index 91
 
-\subsection{WINDOW-TILE}
+\section{WINDOW-TILE}
 \index{action}
 
 index 92
 
-\subsection{WINDOW-CASCADE}
+\section{WINDOW-CASCADE}
 \index{action}
 
 index 93
 
-\subsection{WINDOW-NEXT}
+\section{WINDOW-NEXT}
 \index{action}
 
 index 94
 
-\subsection{WINDOW-PREVIOUS}
+\section{WINDOW-PREVIOUS}
 \index{action}
 
 index 95
 
-\subsection{ZOOM}
+\section{ZOOM}
 \index{action}
 
  index 96
 
-\subsection{ZOOM-IN}
+\section{ZOOM-IN}
 \index{action}
 
 index 97
 
-\subsection{TEST}
+\section{TEST}
 \index{action}
 
  index 98
 
-\subsection{SLEEP}
+\section{SLEEP}
 \index{action}
 
 index 99
 
-\subsection{LAYER-EDITOR}
+\section{LAYER-EDITOR}
 \index{action}
 
 index 100
 
-\subsection{MAKE-LAYER-CURRENT}
+\section{MAKE-LAYER-CURRENT}
 \index{action}
 
 index 101
 
-\subsection{TEXT-BOLD}
+\section{TEXT-BOLD}
 \index{action}
 
 index 102
 
-\subsection{TEXT-ITALIC}
+\section{TEXT-ITALIC}
 \index{action}
 
 index 103
 
-\subsection{TEXT-UNDERLINE}
+\section{TEXT-UNDERLINE}
 \index{action}
 
 index 104
 
-\subsection{TEXT-STRIKEOUT}
+\section{TEXT-STRIKEOUT}
 \index{action}
 
 index 105
 
-\subsection{TEXT-OVERLINE}
+\section{TEXT-OVERLINE}
 \index{action}
 
 index 106
 
-\subsection{LAYER-PREVIOUS}
+\section{LAYER-PREVIOUS}
 \index{action}
 
 index 107
 
-\subsection{ICON16}
+\section{ICON16}
 \index{action}
 
 index 108
 
-\subsection{ICON24}
+\section{ICON24}
 \index{action}
 
 index 109
 
-\subsection{ICON32}
+\section{ICON32}
 \index{action}
 
 index 110
 
-\subsection{ICON48}
+\section{ICON48}
 \index{action}
 
 index 111
 
-\subsection{ICON64}
+\section{ICON64}
 \index{action}
 
 index 112
 
-\subsection{ICON128}
+\section{ICON128}
 \index{action}
 
 index 113
 
-\subsection{SAVE}
+\section{SAVE}
 \index{action}
 
 index 114
 
-\subsection{SAVEAS}
+\section{SAVEAS}
 \index{action}
 
 index 115
 
-\subsection{PAN-REAL-TIME}
+\section{PAN-REAL-TIME}
 \index{action}
 
 index 116
 
-\subsection{PAN-POINT}
+\section{PAN-POINT}
 \index{action}
 
 index 117
 
-\subsection{PAN-LEFT}
+\section{PAN-LEFT}
 \index{action}
 
 index 118
 
-\subsection{PAN-RIGHT}
+\section{PAN-RIGHT}
 \index{action}
 
 index 119
 
-\subsection{PAN-UP}
+\section{PAN-UP}
 \index{action}
 
 index 120
 
-\subsection{PAN-DOWN}
+\section{PAN-DOWN}
 \index{action}
 
 index 121
 
-\subsection{ZOOM-REAL-TIME}
+\section{ZOOM-REAL-TIME}
 \index{action}
 
 index 122
 
-\subsection{ZOOM-PREVIOUS}
+\section{ZOOM-PREVIOUS}
 \index{action}
 
 index 123
 
-\subsection{ZOOM-WINDOW}
+\section{ZOOM-WINDOW}
 \index{action}
 
 index 124
 
-\subsection{ZOOM-DYNAMIC}
+\section{ZOOM-DYNAMIC}
 \index{action}
 
 index 125
 
-\subsection{ZOOM-OUT}
+\section{ZOOM-OUT}
 \index{action}
 
 index 126
 
-\subsection{ZOOM-EXTENTS}
+\section{ZOOM-EXTENTS}
 \index{action}
 
 index 127
 
-\subsection{LAYERS}
+\section{LAYERS}
 \index{action}
 
 index 128
 
-\subsection{LAYER-SELECTOR}
+\section{LAYER-SELECTOR}
 \index{action}
 
 index 129
 
-\subsection{TREBLECLEF}
+\section{TREBLECLEF}
 \index{action}
 
 index 130
 
-\subsection{COLOR-SELECTOR}
+\section{COLOR-SELECTOR}
 \index{action}
 
 index 131
 
-\subsection{LINE-TYPE-SELECTOR}
+\section{LINE-TYPE-SELECTOR}
 \index{action}
 
 index 132
 
-\subsection{LINE-WEIGHT-SELECTOR}
+\section{LINE-WEIGHT-SELECTOR}
 \index{action}
 
 index 133
 
-\subsection{ZOOM-SCALE}
+\section{ZOOM-SCALE}
 \index{action}
 
 index 134
 
-\subsection{ZOOM-CENTER}
+\section{ZOOM-CENTER}
 \index{action}
 
 index 135
 
-\subsection{HIDE-ALL-LAYERS}
+\section{HIDE-ALL-LAYERS}
 \index{action}
 
 index 136
 
-\subsection{ZOOM-SELECTED}
+\section{ZOOM-SELECTED}
 \index{action}
 
 index 137
 
-\subsection{ZOOM-ALL}
+\section{ZOOM-ALL}
 \index{action}
 
 index 138
 
-\subsection{ADD-HEART}
+\section{ADD-HEART}
 \index{action}
 
 index 139
 
-\subsection{ADD-SINGLE-LINE-TEXT}
+\section{ADD-SINGLE-LINE-TEXT}
 \index{action}
 
 index 140
 
-\subsection{SHOW-ALL-LAYERS}
+\section{SHOW-ALL-LAYERS}
 \index{action}
 
 index 141
 
-\subsection{FREEZE-ALL-LAYERS}
+\section{FREEZE-ALL-LAYERS}
 \index{action}
 
 index 142
 
-\subsection{THAW-ALL-LAYERS}
+\section{THAW-ALL-LAYERS}
 \index{action}
 
 index 143
 
-\subsection{LOCK-ALL-LAYERS}
+\section{LOCK-ALL-LAYERS}
 \index{action}
 
 index 144
 
-\subsection{UNLOCK-ALL-LAYERS}
+\section{UNLOCK-ALL-LAYERS}
 \index{UNLOCK-ALL-LAYERS}
 
 index 145
 
-\subsection{ADD-DOLPHIN}
+\section{ADD-DOLPHIN}
 \index{ADD-DOLPHIN}
 
 index 146
 
-\subsection{ADD-DISTANCE}
+\section{ADD-DISTANCE}
 \index{ADD-DISTANCE}
 
 index 147
 
-\subsection{LOCATE-POINT}
+\section{LOCATE-POINT}
 \index{LOCATE-POINT}
 
 index 148
 
-\subsection{QUICKSELECT}
+\section{QUICKSELECT}
 \index{QUICKSELECT}
 
 index 149
 
-\subsection{SPELLCHECK}
+\section{SPELLCHECK}
 \index{SPELLCHECK}
 
 index 150
 
-\subsection{DISTANCE}
+\section{DISTANCE}
 \index{DISTANCE}
 
 index 151
 
-\subsection{MOVE}
+\section{MOVE}
 \index{MOVE}
 
 index 152
 
-\subsection{QUICKLEADER}
+\section{QUICKLEADER}
 \index{QUICKLEADER}
 
 index 153
 
-\subsection{RGB}
+\section{RGB}
 \index{RGB}
 
  index 154
 
-\subsection{ROTATE}
+\section{ROTATE}
 \index{ROTATE}
 
 index 155
 
-\subsection{SANDBOX}
+\section{SANDBOX}
 \index{SANDBOX}
 
 index 156
 
-\subsection{ADD-SNOWFLAKE}
+\section{ADD-SNOWFLAKE}
 \index{ADD-SNOWFLAKE}
 
 index 157
 
-\subsection{ADD-STAR}
+\section{ADD-STAR}
 \index{ADD-STAR}
 
 index 158
 
-\subsection{DELETE}
+\section{DELETE}
 \index{DELETE}
 
 index 159
 
-\subsection{SCALE}
+\section{SCALE}
 \index{SCALE}
 
 index 160
 
-\subsection{SINGLE-LINE-TEXT}
+\section{SINGLE-LINE-TEXT}
 \index{SINGLE-LINE-TEXT}
 
 index 161
 
-\subsection{SYSWINDOWS}
+\section{SYSWINDOWS}
 \index{SYSWINDOWS}
 
 index 162
-
 
 \subsection{Changelog}
 
@@ -5174,13 +4862,15 @@ Overview of documentation support by format.
 
 .. literalinclude:: format\_support.csv
 
-* TODO Josh, Review this section and move any info still valid or needing work into TODO comments in the actual libembroidery code. Many items in this list are out of date and do not reflect the current status of libembroidery. When finished, delete this file.
+\begin{enumerate}
+\item TODO: Josh, Review this section and move any info still valid or needing work into TODO comments in the actual libembroidery code. Many items in this list are out of date and do not reflect the current status of libembroidery. When finished, delete this file.
   * Test that all formats read data in correct scale (format details should match other programs)
   * Add which formats to work with to preferences.
   * Check for memory leaks
   * Update all formats without color to check for edr or rgb files
   * Fix issues with DST (VERY important that DST work well)
-* todo Support for Singer FHE, CHE (Compucon) formats?
+\item TODO: Support for Singer FHE, CHE (Compucon) formats?
+\end{enumerate}
 
 \section{Geometry and Algorithms}
 
@@ -5228,11 +4918,13 @@ kit to test out libembroidery on.
 
 Should you want to get into the code itself:
 
-* Low level C developers are be needed for the base library \texttt{libembroidery}.
-* Low level assembly programmers are needed for translating some of \texttt{libembroidery} to \texttt{EmbroiderBot}.
-* Hardware Engineers to help design our own kitbashed embroidery machine \texttt{EmbroiderBot}, one of the original project aims in 2013.
-* Scheme developers and C/SDL developers to help build the GUI.
-* Scheme developers to help add designs for generating of custom stitch-filled emblems like the heart or dolphi. Note that this happens in Embroidermodder not libembroidery (which assumes that you already have a function available).
+\begin{enumerate}
+\item Low level C developers are be needed for the base library \texttt{libembroidery}.
+\item Low level assembly programmers are needed for translating some of \texttt{libembroidery} to \texttt{EmbroiderBot}.
+\item Hardware Engineers to help design our own kitbashed embroidery machine \texttt{EmbroiderBot}, one of the original project aims in 2013.
+\item Scheme developers and C/SDL developers to help build the GUI.
+\item Scheme developers to help add designs for generating of custom stitch-filled emblems like the heart or dolphi. Note that this happens in Embroidermodder not libembroidery (which assumes that you already have a function available).
+\end{enumerate}
 
 \subsection{Writing}
 
@@ -5250,7 +4942,7 @@ appreciated!
 A basic set of guidelines to use when submitting code.
 
 Code structure is mre important than style, so first we advise you read
-``Design`` and experimenting before getting into the specifics of code style.
+\texttt{Design} and experimenting before getting into the specifics of code style.
 
 \subsection{Where Code Goes}
 
@@ -5260,7 +4952,7 @@ in \texttt{libembroidery} not here.
 
 \subsection{Where Non-compiled Files Go}
 
-.. todo::
+TODO:
    Like most user interfaces Embroidermodder is mostly data,
    so here we will have a list describing where each CSV goes.
 
@@ -5269,9 +4961,9 @@ in \texttt{libembroidery} not here.
 Most style guides advise you to keep functions short. We make a few pointed
 exceptions to this where the overall health and functionality of the source code should benefit.
 
-The `actuator` function will always be a mess and it should be: we're keeping
+The \texttt{actuator} function will always be a mess and it should be: we're keeping
 the total source lines of code down by encoding all user action into a descrete
-sequence of strings that are all below \texttt{``\_STRING\_LENGTH``} in length. See
+sequence of strings that are all below \texttt{\_STRING\_LENGTH} in length. See
 the section on the actuator (TODO) describing why any other solution we could
 think  here would mean more more code without a payoff in speed of execution or
 clarity.
@@ -5286,11 +4978,13 @@ Try to group commits based on what they are related to: features/bugs/comments/g
 
 Creating software that interfaces with hardware is costly. A summary of some of the costs involved:
 
-* Developer time for 2 core developers
-* Computer equipment and parts
-* Embroidery machinery
-* Various electronics for kitbashing Embroiderbot
-* Consumable materials (thread, fabric, stabilizer, etc...)
+\begin{enumerate}
+\item Developer time for 2 core developers
+\item Computer equipment and parts
+\item Embroidery machinery
+\item Various electronics for kitbashing Embroiderbot
+\item Consumable materials (thread, fabric, stabilizer, etc...)
+\end{enumerate}
 
 If you have found our software useful, please consider funding further development by donating to the project on Open Collective
 (\url{https://opencollective.com/embroidermodder}).
@@ -5303,16 +4997,18 @@ for C style and emulating that in C++.
 
 A basic set of guidelines to use when submitting code. Defer to the PEP7 standard with the following additions:
 
-* All files and directories shall be lowercase and contain no spaces.
-* Structs and class names should use `LeadingCapitals`.
-* Enums and constants should be ``BLOCK\_CAPITALS``.
-* Class members and functions without a parent class should be ``snake\_case``.
-  With the exception of when one of the words is a ``class`` name from
-  libembroidery in which case it has the middle capitals like this:
-  ``embArray\_add``.
-* Don't use exceptions.
-* Don't use ternary operator (?:) in place of if/else.
-* Don't repeat a variable name that already occurs in an outer scope.
+\begin{enumerate}
+\item All files and directories shall be lowercase and contain no spaces.
+\item Structs and class names should use \texttt{LeadingCapitals}.
+\item Enums and constants should be ``BLOCK\_CAPITALS``.
+\item Class members and functions without a parent class should be
+    \texttt{snake\_case}. With the exception of when one of the words is a
+    \texttt{class} name from libembroidery in which case it has the middle capitals
+    like this: \texttt{embArray\_add}.
+\item Don't use exceptions.
+\item Don't use ternary operator (?:) in place of if/else.
+\item Don't repeat a variable name that already occurs in an outer scope.
+\end{enumerate}
 
 \section{Version Control}
 
@@ -5803,7 +5499,7 @@ Based on the DraftSight color table.
 
 \section{Hemingworth Polyester Codes}
 
-%\include{tables/shv_colors.tex}
+\include{tables/shv_colors.tex}
 
 \section{HUS Colors}
 
@@ -5813,11 +5509,11 @@ CSV format: red, green, blue, name, catalog number
 
 .HUS Colors
 
-%\include{tables/hus_colors.tex}
+\include{tables/hus_colors.tex}
 
 \section{Isacord Polyester Codes}
 
-%\include{tables/isacord_polyester_colors.tex}
+\include{tables/isacord_polyester_colors.tex}
 
 \section{Isafil Rayon Codes}
 
@@ -5831,9 +5527,9 @@ To do: find a citation
 
 \section{Madeira Threads}
 
-%\include{tables/madeira_polyester_colors.tex}
+\include{tables/madeira_polyester_colors.tex}
 
-%\include{tables/madeira_rayon_colors.tex}
+\include{tables/madeira_rayon_colors.tex}
 
 \section{Marathon Polyester Codes}
 
@@ -5864,7 +5560,7 @@ See \url{https://www.pantone-colours.com/}
 \section{Robinson Anton Polyester Codes}
 \index{Robinson Anton}
 
-% \include{tables/robinson_anton_colors.tex}
+\include{tables/robinson_anton_colors.tex}
 
 \section{Sigma Polyester Codes}
 
@@ -5888,7 +5584,7 @@ an error.
 \section{ThreadArt Threads}
 \index{ThreadArt}
 
-% \include{tables/threadart_polyester_colors.tex}
+\include{tables/threadart_polyester_colors.tex}
 
 \include{tables/threadart_rayon_colors.tex}
 
@@ -5903,7 +5599,7 @@ an error.
 
 \include{fdl-1.3.tex}
 
-%\printindex
+\printindex
 
 \end{document}
 
