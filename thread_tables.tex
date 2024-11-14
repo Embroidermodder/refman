@@ -1,35 +1,48 @@
+\newcommand{\threadtable}[3]{
+  \begin{center}
+    \label{tab:#1}
+      \csvreader[tabular=l l l,
+table head=\multicolumn{3}{c}{\bfseries #2}\\\hline
+  \bfseries Catalog Code & \bfseries Name & \bfseries Color\\\hline,
+late after line=\\\hline]{#3}%
+{Catalog Code=\catalogcode,Name=\catalogname,Color=\catalogcolor}{%
+\texttt{\catalogcode} & \catalogname & \catalogcolor
+    }
+  \end{center}
+}
 
 \chapter{Tread Tables}
 
 \section{Arc Threads}
 
-%\include{tables/arc_polyester_colors.tex}
+\threadtable{arcpoly}{Arc Polyester Colors}{data/arc_rayon_colors.csv}
 
-%\include{tables/arc_rayon_colors.tex}
+\threadtable{arcrayon}{Arc Rayon Colors}{data/arc_rayon_colors.csv}
 
-\section{Coats and Clark Rayon Codes}
+\section{Coats and Clark Codes}
 
-%\include{tables/coats_and_clark_rayon_colors.tex}
+\threadtable{coatsclarkrayon}{Coats and Clark Rayon}%
+{data/coats_and_clark_rayon_colors.csv}
 
 \section{DXF Colors}
 
 Based on the DraftSight color table.
 
-%\include{tables/shv_colors.tex}
+%\threadtable{dxfcolors}{DXF Colors}{data/dxf_colors.csv}
 
 \section{Exquisite Polyester Codes}
 
-%\include{tables/exquisite_polyester_colors.tex}
+\threadtable{exqpoly}{Exquisite Polyester Codes}{data/exquisite_polyester_colors.csv}
 
 \section{Fufu Threads}
 
-%\include{tables/fufu_polyester_colors.tex}
+\threadtable{fufupoly}{Fufu Polyester Threads}{data/fufu_polyester_colors.csv}
 
-%\include{tables/fufu_rayon_colors.tex}
+\threadtable{fufurayon}{Fufu Rayon Threads}{data/fufu_rayon_colors.csv}
 
 \section{Hemingworth Polyester Codes}
 
-\include{tables/shv_colors.tex}
+%\threadtable{shvcolors}{SHV Colors}{data/hemingworth_polyester_colors.csv}
 
 \section{HUS Colors}
 
@@ -39,68 +52,73 @@ CSV format: red, green, blue, name, catalog number
 
 .HUS Colors
 
-\include{tables/hus_colors.tex}
+\threadtable{hus-colors}{HUS Colors}{data/hus_colors.csv}
 
 \section{Isacord Polyester Codes}
 
-\include{tables/isacord_polyester_colors.tex}
+%\threadtable{isacordpoly}{Isacord Polyester Colors}{data/isacord_polyester_colors.csv}
 
 \section{Isafil Rayon Codes}
 
-%\include{tables/isafil_rayon_colors.tex}
+%\threadtable{isafilrayon}{Isafil Rayon Codes}{data/isafil_rayon_colors.csv}
 
 \section{JEF Colors}
 
 To do: find a citation
 
-%\include{tables/jef_colors.tex}
+%\threadtable{jefcolors}{JEF Colors}{data/jef_colors.csv}
 
 \section{Madeira Threads}
 
-\include{tables/madeira_polyester_colors.tex}
+%\threadtable{madeirapoly}{Madeira Polyester Colors}%
+{data/madeira_polyester_colors.csv}
 
-\include{tables/madeira_rayon_colors.tex}
+%\threadtable{madeirarayon}{Madeira Rayon Colors}{data/madeira_rayon_colors.csv}
 
 \section{Marathon Polyester Codes}
 
-%\include{tables/shv_colors.tex}
+%\threadtable{marathonpoly}{Marathon Polyester Codes}{data/shv_colors.csv}
 
 \section{Marathon Rayon Codes}
 
-%\include{tables/shv_colors.tex}
+%\threadtable{marathonrayon}{Marathon Rayon Codes}{data/shv_colors.csv}
 
 \section{Metro Polyester Code}
 
-%\include{tables/shv_colors.tex}
+%\threadtable{metropoly}{SHV Colors}{data/shv_colors.csv}
 
 \section{Pantone Codes}
 
 See \url{https://www.pantone-colours.com/}
 
-%\include{tables/pantone_colors.tex}
+%\threadtable{pantone}{Pantone Colors}{data/pantone_colors.csv}
 
 \section{PCM Color Codes}
+\index{PCM Colors}
 
-%\include{tables/pcm_colors.tex}
+%\threadtable{pcmcolors}{PCM Colors}{data/pcm_colors.csv}
 
 \section{PEC Color Codes}
+\index{PEC Colors}
 
-%\include{tables/pec_colors.tex}
+%\threadtable{peccolors}{PEC Colors}{data/pec_colors.csv}
 
 \section{Robinson Anton Polyester Codes}
 \index{Robinson Anton}
 
-\include{tables/robinson_anton_colors.tex}
+\threadtable{robinsonanton}{Robinson Anton Colors}%
+{data/robinson_anton_colors.csv}
 
 \section{Sigma Polyester Codes}
 
-%\include{tables/sigma_polyester_colors.tex}
+%\threadtable{sigmapoly}{Sigma Polyester Colors}%
+%{data/sigma_polyester_colors.csv}
 
 \section{Sulky Rayon Colors}
 \index{Sulky}
 \index{Rayon}
 
-%\include{tables/sulky_rayon_colors.tex}
+%\threadtable{sulkyrayon}{Sulky Rayon Colors}{data/sulky_rayon_colors.csv}
 
 \section{SVG Colors}
 \index{SVG}
@@ -114,14 +132,17 @@ an error.
 \section{ThreadArt Threads}
 \index{ThreadArt}
 
-\include{tables/threadart_polyester_colors.tex}
+\threadtable{threadartpoly}{ThreadArt Polyester Colors}%
+{data/threadart_polyester_colors.csv}
 
-\include{tables/threadart_rayon_colors.tex}
+\threadtable{threadartrayon}{ThreadArt Rayon Colors}%
+{data/threadart_rayon_colors.csv}
 
 \section{ThreaDelight Polyester Codes}
 \index{ThreadDelight}
 
 \section{Z102 Threads}
 
-\include{tables/z102_isacord_polyester_colors.tex}
+%\threadtable{z102isacord}{Z102 Isacord Polyester}%
+%{data/z102_isacord_polyester_colors.csv}
 

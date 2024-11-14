@@ -1,18 +1,18 @@
 "Name", "Color (Hex Code)", "Catalog Code"
 "?", 0xFFFFFF, 10
-"?", 0xFFFFFF, 15 /* TODO: duplicate case value */
-"?", 0xFFFFFF, 17 /* TODO: duplicate case value */
+"?", 0xFFFFFF, 15
+"?", 0xFFFFFF, 17
 "?", 0x000000, 20
 "?", 0xFFFDED, 101
 "?", 0x7D7D7D, 104
 "?", 0x515B61, 107
 "?", 0x6D757B, 108
 "?", 0xACACAC, 109
-"?", 0x515B61, 111 /* TODO: duplicate case value */
+"?", 0x515B61, 111
 "?", 0x5D5D5D, 112
 "?", 0xCFCFCF, 124
 "?", 0xA1A9B4, 131
-"?", 0x6D757B, 141 /* TODO: duplicate case value */
+"?", 0x6D757B, 141
 "?", 0x9EA5AA, 142
 "?", 0xCFD1D5, 145
 "?", 0xC6BDB4, 150
@@ -39,8 +39,8 @@
 "?", 0x6B7E6F, 463
 "?", 0x3E4F34, 465
 "?", 0xEDEF05, 501
-"?", 0xFAF6CC, 505 /* TODO: duplicate case value */
-"?", 0xF5D300, 506 /* TODO: duplicate case value */
+"?", 0xFAF6CC, 505
+"?", 0xF5D300, 506
 "?", 0xFFFBD1, 510
 "?", 0xFDE896, 520
 "?", 0xD7CE8A, 532
@@ -52,14 +52,14 @@
 "?", 0xF4EE8C, 580
 "?", 0xF1EB35, 590
 "?", 0xF8D73E, 600
-"?", 0xF8D73E, 605 /* TODO: duplicate case value */
+"?", 0xF8D73E, 605
 "?", 0xF7CB47, 610
 "?", 0xF7E400, 615
-"?", 0xFDE896, 620 /* TODO: duplicate case value */
+"?", 0xFDE896, 620
 "?", 0xEEDB00, 625
 "?", 0xFEF09A, 630
 "?", 0xFDE1AF, 635
-"?", 0xFDE896, 640 /* TODO: duplicate case value */
+"?", 0xFDE896, 640
 "?", 0xF5D2A6, 651
 "?", 0xFEF9EA, 660
 "?", 0xFAF6E7, 670
@@ -80,7 +80,7 @@
 "?", 0xF5BA5D, 811
 "?", 0xE1A23E, 821
 "?", 0xCCAB3F, 822
-"?", 0xDFA200, 824 /* TODO: duplicate case value */
+"?", 0xDFA200, 824
 "?", 0xF3B044, 830
 "?", 0xD0A44F, 832
 "?", 0xCD944A, 842
@@ -111,7 +111,7 @@
 "?", 0xED873F, 1100
 "?", 0xEC870E, 1101
 "?", 0xED9206, 1102
-"?", 0xEE9C00, 1106 /* TODO: duplicate case value */
+"?", 0xEE9C00, 1106
 "?", 0xC45331, 1113
 "?", 0xEE8751, 1114
 "?", 0xA35214, 1115
@@ -130,7 +130,7 @@
 "?", 0xEA7134, 1305
 "?", 0xE12A23, 1306
 "?", 0xC14817, 1311
-"?", 0xC45331, 1312 /* TODO: duplicate case value */
+"?", 0xC45331, 1312
 "?", 0xD7623E, 1313
 "?", 0xED7C56, 1320
 "?", 0x92291B, 1324
@@ -156,12 +156,12 @@
 "?", 0xF6B08E, 1532
 "?", 0xF9C5B9, 1551
 "?", 0x806A61, 1565
-"?", 0x464537, 1573 /* TODO: duplicate case value */
+"?", 0x464537, 1573
 "?", 0xE36C63, 1600
 "?", 0xF9C7B9, 1630
 "?", 0xE44733, 1701
 "?", 0xDF0032, 1703
-"?", 0xE44733, 1705 /* TODO: duplicate case value */
+"?", 0xE44733, 1705
 "?", 0xCF0040, 1725
 "?", 0xDB686B, 1750
 "?", 0xF1CDCE, 1755
@@ -172,12 +172,12 @@
 "?", 0xD6445D, 1805
 "?", 0xF49E95, 1840
 "?", 0xB76663, 1842
-"?", 0xE36C63, 1849 /* TODO: duplicate case value */
+"?", 0xE36C63, 1849
 "?", 0xF0887D, 1850
 "?", 0xFAC7C1, 1855
 "?", 0xFCDAD5, 1860
 "?", 0xFDE3D3, 1870
-"?", 0x636254, 1874 /* TODO: duplicate case value */
+"?", 0x636254, 1874
 "?", 0x394535, 1876
 "?", 0xE10057, 1900
 "?", 0xBD0041, 1902
@@ -233,11 +233,11 @@
 "?", 0x820052, 2506
 "?", 0xD63C81, 2513
 "?", 0xE20078, 2520
-"?", 0xBF006A, 2521 /* TODO: duplicate case value */
-"?", 0xEE71A1, 2524 /* TODO: duplicate case value */
+"?", 0xBF006A, 2521
+"?", 0xEE71A1, 2524
 "?", 0xF189AF, 2550
 "?", 0xF7B4CA, 2555
-"?", 0xF7B4CA, 2560 /* TODO: duplicate case value */
+"?", 0xF7B4CA, 2560
 "?", 0x494949, 2576
 "?", 0x394248, 2578
 "?", 0x893480, 2600
@@ -290,12 +290,12 @@
 "?", 0x171B4A, 3355
 "?", 0x959ACA, 3420
 "?", 0x6A76B5, 3430
-"?", 0x11263C, 3443 /* TODO: duplicate case value */
+"?", 0x11263C, 3443
 "?", 0x002232, 3444
 "?", 0x2D4491, 3522
 "?", 0x261257, 3536
 "?", 0x53428A, 3540
-"?", 0x3A2885, 3541 /* TODO: duplicate case value */
+"?", 0x3A2885, 3541
 "?", 0x233B7D, 3543
 "?", 0x273C82, 3544
 "?", 0x272651, 3554
@@ -311,7 +311,7 @@
 "?", 0x00507F, 3732
 "?", 0x12253C, 3743
 "?", 0xB7D1E3, 3750
-"?", 0xD0DEEE, 3752 /* TODO: duplicate case value */
+"?", 0xD0DEEE, 3752
 "?", 0xAFC9E5, 3761
 "?", 0xCED2D1, 3770
 "?", 0x3D6AA1, 3810
@@ -337,7 +337,7 @@
 "?", 0x507793, 4032
 "?", 0x265674, 4033
 "?", 0x9ED4E6, 4040
-"?", 0xEAF0F9, 4071 /* TODO: duplicate case value */
+"?", 0xEAF0F9, 4071
 "?", 0x0096C1, 4100
 "?", 0x2DB0CF, 4101
 "?", 0x0095C6, 4103
@@ -346,12 +346,12 @@
 "?", 0x00A9C9, 4113
 "?", 0x5DBFD2, 4121
 "?", 0x00405D, 4133
-"?", 0x192024, 4174 /* TODO: duplicate case value */
-"?", 0x192024, 4175 /* TODO: duplicate case value */
+"?", 0x192024, 4174
+"?", 0x192024, 4175
 "?", 0x4FB4CB, 4220
 "?", 0x8DCEE4, 4230
-"?", 0x2DB0CF, 4231 /* TODO: duplicate case value */
-"?", 0x006587, 4232 /* TODO: duplicate case value */
+"?", 0x2DB0CF, 4231
+"?", 0x006587, 4232
 "?", 0x8DCDDB, 4240
 "?", 0xD5EBF2, 4250
 "?", 0x007389, 4400
@@ -362,22 +362,22 @@
 "?", 0x007986, 4425
 "?", 0x5FBFD1, 4430
 "?", 0x004250, 4432
-"?", 0x8DCEE4, 4440 /* TODO: duplicate case value */
+"?", 0x8DCEE4, 4440
 "?", 0x006981, 4442
 "?", 0x007F92, 4452
 "?", 0x008192, 4500
 "?", 0x007079, 4513
 "?", 0x002F38, 4515
 "?", 0x00646A, 4516
-"?", 0x007389, 4531 /* TODO: duplicate case value */
-"?", 0x007B8D, 4610 /* TODO: duplicate case value */
+"?", 0x007389, 4531
+"?", 0x007B8D, 4610
 "?", 0x00A3A0, 4620
 "?", 0x0B7F85, 4625
 "?", 0x005B63, 4643
 "?", 0x234544, 4644
 "?", 0x8CCDD3, 4840
 "?", 0x006F73, 5000
-"?", 0x005B63, 5005 /* TODO: duplicate case value */
+"?", 0x005B63, 5005
 "?", 0x00A6AD, 5010
 "?", 0x49BAC0, 5020
 "?", 0xCFDDE0, 5040
@@ -390,16 +390,16 @@
 "?", 0x8CCCC2, 5220
 "?", 0x47B9AE, 5230
 "?", 0x197E6D, 5233
-"?", 0x8CCCC2, 5240   /* TODO: duplicate case value */
-"?", 0x005B63, 5255   /* TODO: duplicate case value */
+"?", 0x8CCCC2, 5240
+"?", 0x005B63, 5255
 "?", 0x006E42, 5324
 "?", 0x004D3D, 5326
-"?", 0x002F38, 5335   /* TODO: duplicate case value */
+"?", 0x002F38, 5335
 "?", 0x002D1F, 5374
-"?", 0x002F38, 5375   /* TODO: duplicate case value */
+"?", 0x002F38, 5375
 "?", 0x008663, 5411
 "?", 0x006B4E, 5415
-"?", 0x008663, 5422   /* TODO: duplicate case value */
+"?", 0x008663, 5422
 "?", 0x006B56, 5425
 "?", 0x008879, 5431
 "?", 0xDBE9E5, 5460
@@ -407,7 +407,7 @@
 "?", 0x52BA84, 5500
 "?", 0x14A363, 5510
 "?", 0x007848, 5513
-"?", 0x008663, 5515 /* TODO: duplicate case value */
+"?", 0x008663, 5515
 "?", 0x52A04F, 5531
 "?", 0x6EA293, 5542
 "?", 0x94ADA1, 5552
@@ -422,7 +422,7 @@
 "?", 0xC9E3C5, 5650
 "?", 0x6B9181, 5664
 "?", 0x3A6D57, 5765
-"?", 0x103828, 5766 /* TODO: duplicate case value */
+"?", 0x103828, 5766
 "?", 0x02140C, 5776
 "?", 0xA5C278, 5822
 "?", 0xB4D383, 5832

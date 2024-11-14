@@ -1,7 +1,7 @@
-"Name","Color (Hex Code)","Catalog Code"
+"Name","Color","Catalog Code"
 "?", 0xFFFFFF, 10
-"?", 0xFFFFFF, 15  /* TODO: duplicate case value */
-"?", 0xFFFFFF, 17  /* TODO: duplicate case value */
+"?", 0xFFFFFF, 15
+"?", 0xFFFFFF, 17
 "?", 0x000000, 20
 "?", 0xFFFDED, 101
 "?", 0x6D757B, 108
@@ -31,14 +31,14 @@
 "?", 0x6B7E6F, 463
 "?", 0x3E4F34, 465
 "?", 0xEDEF05, 501
-"?", 0xF5D300, 506   /* TODO: duplicate case value */
+"?", 0xF5D300, 506 
 "?", 0xFDE896, 520
 "?", 0xD7CE8A, 532
 "?", 0xB18B00, 542
 "?", 0xB28F11, 546
 "?", 0xB69F56, 552
 "?", 0xF8D73E, 600
-"?", 0xF8D73E, 605   /* TODO: duplicate case value */
+"?", 0xF8D73E, 605 
 "?", 0xF7DC00, 608
 "?", 0xFEF09A, 630
 "?", 0xFDE896, 640   /*  TODO: duplicate case value */

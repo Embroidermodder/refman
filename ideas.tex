@@ -1,26 +1,33 @@
+\input{code.tex}
+
 \section{The Embroidermodder Project and Team}
 
-The *Embroidermodder 2* project is a collection of small software utilities for
+The \emph{Embroidermodder 2} project is a collection of small software utilities for
 manipulating, converting and creating embroidery files in all major embroidery
 machine formats. The program *Embroidermodder 2* itself is a larger graphical
 user interface (GUI) which is at the heart of the project.
 
 The tools and associated documents are:
 
-* This website (www.libembroidery.org), which is maintained [docs-repo]_.
-* The manual [manual-link]_ covering all these projects which is maintained seperately as LaTeX [manual-src]_.
-* The GUI (embroidermodder), maintained [gui]_.
-* The core library of low-level functions: [libembroidery-src]_.
-* The CLI `embroider` which is part of [libembroidery-src]_.
-* Mobile embroidery format viewers and tools [EmbroideryMobile-src]_.
-* Specs for an open hardware embroidery machine called Embroiderbot (not started yet) which is also part of [libembroidery-src]_.
-
-.. [docs-repo] https://github.com/Embroidermodder/docs
-.. [manual-link] https://www.libembroidery.org/embroidermodder_2.0_manual.pdf
-.. [manual-src] https://github.com/Embroidermodder/emrm
-.. [gui] https://github.com/Embroidermodder/embroidermodder
-.. [libembroidery-src] https://github.com/Embroidermodder/libembroidery
-.. [EmbroideryMobile-src] https://github.com/Embroidermodder/embroiderymobile
+\if{0}
+\begin{itemize}
+\item This website (www.libembroidery.org), which is maintained:
+    %\hyperref{https://github.com/Embroidermodder/website}.
+\item The manual manual-link covering all these projects which is maintained seperately as LaTeX manual-src.
+    %\hyperref{https://github.com/Embroidermodder/userman}.
+    Current version of this document:
+    %\hyperref{https://www.libembroidery.org/embroidermodder_2.0_manual.pdf}.
+\item The GUI (embroidermodder), maintained here:
+    \hyperref{https://github.com/Embroidermodder/embroidermodder}.
+\item The core library of low-level functions:
+    \hyperref{https://github.com/Embroidermodder/libembroidery}.
+\item The CLI `embroider` which is part of the libembroidery source code.
+\item Mobile embroidery format viewers and tools:
+    \hyperref{https://github.com/Embroidermodder/embroiderymobile}.
+\item Specs for an open hardware embroidery machine called Embroiderbot (not started yet)
+    which is also part of the libembroidery source code.
+\end{itemize}
+\fi
 
 They are all tools to make the standard user experience of working with an
 embroidery machine better without expensive software which is locked to specific
@@ -30,7 +37,7 @@ and personal hobbyist's bedrooms.
 
 Embroidermodder 2 is licensed under the zlib license and we aim to keep all of
 our tools open source and free of charge. If you would like to support the
-project check out our `Open Collective <https://opencollective.com/embroidermodder>`_
+project check out our Open Collective \hyperref{https://https://opencollective.com/embroidermodder}
 group. If you would like to help, please
 join us on GitHub. This document is written as developer training as well
 helping new users (see the last sections) so this is the place to learn how
@@ -40,22 +47,27 @@ The Embroidermodder Team is the collection of people who've submitted
 patches, artwork and documentation to our three projects.
 The team was established by Jonathan Greig and Josh Varga.
 The full list of contributors who wish to be credited is
-here: https://www.libembroidery.org/docs/credits/
+%here: \hyperref{https://www.libembroidery.org/docs/credits/}
 
-## Core Development Team
+\subsection{Core Development Team}
 
 Embroidermodder 2:
 
-  * Jonathan Greig [https://github.com/redteam316](https://github.com/redteam316)
-  * Josh Varga [https://github.com/JoshVarga](https://github.com/JoshVarga)
-  * Robin Swift [https://github.com/robin-swift](https://github.com/robin-swift)
+%\begin{itemize}
+%\item Jonathan Greig: \hyperref{https://github.com/redteam316}
+%\item Josh Varga: \hyperref{https://github.com/JoshVarga}
+%\item Robin Swift: \hyperref{https://github.com/robin-swift}
+%\end{itemize}
 
 Embroidermodder 1:
 
-  * Josh Varga [https://github.com/JoshVarga](https://github.com/JoshVarga)
-  * Mark Pontius [http://sourceforge.net/u/mpontius/profile](http://sourceforge.net/u/mpontius/profile)
+%\begin{itemize}
+%\item Josh Varga: \hyperref{https://github.com/JoshVarga}
+%\item Mark Pontius: \hyperref{http://sourceforge.net/u/mpontius/profile}
+%\end{itemize}
 
-## History
+\if{0}
+\subsection{History}
 
 Embroidermodder 1 was started by Mark Pontius in 2004 while staying up all night
 with his son in his first couple months. When Mark returned to his day job,
@@ -70,39 +82,18 @@ active development and will run on GNU/Linux, Mac OS X, Microsoft Windows and Ra
 The source code and binaries for Embroidermodder 1 were hosted on Sourceforge, but
 due to link rot we've lost them.
 
-!!! todo
-    upload a backup here.
+\todo{upload a backup here.}
 
 The source code for Embroidermodder
 2 was moved to GitHub ([https://github.com/Embroidermodder/Embroidermodder](https://github.com/Embroidermodder/Embroidermodder)) on July 18, 2013.
 
 This website was moved to
 GitHub ([https://github.com/Embroidermodder/www.libembroidery.org](https://github.com/Embroidermodder/www.libembroidery.org)) on September 9, 2013. Due to us losing the domain name it was renamed to
-``www.libembroidery.org`` from ``www.embroidermodder.org``.
+\texttt{www.libembroidery.org} from \texttt{www.embroidermodder.org}.
 
 The libembroidery library (https://github.com/Embroidermodder/libembroidery)
 became a seperate project in 2018 as a way of supporting other frontends with the
 same file parsing and geometry routines.
-
-## History
-
-Embroidermodder 1 was started by Mark Pontius in 2004 while staying up all night
-with his son in his first couple months. When Mark returned to his day job, he
-lacked the time to continue the project. Mark made the decision to focus on his
-family and work, and in 2005, Mark gave full control of the project to Josh Varga
-so that Embroidermodder could continue its growth.
-
-Embroidermodder 2 was conceived in mid 2011 when Jonathan Greig and Josh Varga
-discussed the possibility of making a cross-platform version. It is currently in
-active development and will run on GNU/Linux, Mac OS X, Microsoft Windows and
-Raspberry Pi.
-
-The source code and binaries for Embroidermodder 1 were hosted on Sourceforge, but
-due to link rot we've lost them.
-
-!!! warning
-
-    TODO: upload a backup here.
 
 The `source code for Embroidermodder 2 <https://github.com/Embroidermodder/Embroidermodder>`_
 was moved to GitHub on July 18, 2013.
@@ -114,13 +105,18 @@ to ``www.libembroidery.org`` from ``www.embroidermodder.org``.
 The `libembroidery library <https://github.com/Embroidermodder/libembroidery>`_
 became a seperate project in 2018 as a way of supporting other frontends with
 the same file parsing and geometry routines.
-# Changelog
 
-## From early alpha to beta
+\section{Changelog}
 
-* Up and Down keys cycle thru commands in the command prompt.
-# Online Viewer and Converter
+\subsection{From early alpha to beta}
 
+\begin{itemize}
+\item Up and Down keys cycle thru commands in the command prompt.
+\end{itemize}
+
+\section{Online Viewer and Converter}
+
+\begin{verbatim}
 !!! warning
     EXPERIMENTAL
 
@@ -147,7 +143,9 @@ does just that. To access other features of the Embroidermodder Project please s
 This viewer uses no cookies and no external tools, so if you save this webpage to use offline it will still function.
 Eventually, this webpage can be embedded in both an Android and an iOS app so we have, in total, 3 front-ends: embroider,
 embroidermodder and the viewer/converter.
-# Credits for Embroidermodder 2, libembroidery and all other related code
+\end{verbatim}
+
+\section{Credits for Embroidermodder 2, libembroidery and all other related code}
 
 Please note that this file in not in alphabetical order. If you have
 contributed and wish to be added to this list, create a new credit
@@ -156,21 +154,24 @@ your: your full name or pseudonym and GitHub handle, if available.
 
 Kinds of contribution:
 
-* Documentation - for changes to README files, manuals or help files.
-* Artwork - for artwork other than designs.
-* Bug Fixes - for small patches of a few lines.
-* Translation - for large patches to the translation files.
-* Designs - for an embroidery design sample or parametrized design as a toml file.
-* Bindings - for programming language bindings for libembroidery.
-* Commands - for Embroidermodder 2's in-built terminal.
+\begin{itemize}
+\item Documentation - for changes to README files, manuals or help files.
+\item Artwork - for artwork other than designs.
+\item Bug Fixes - for small patches of a few lines.
+\item Translation - for large patches to the translation files.
+\item Designs - for an embroidery design sample or parametrized design as a toml file.
+\item Bindings - for programming language bindings for libembroidery.
+\item Commands - for Embroidermodder 2's in-built terminal.
+\end{itemize}
 
-finally there's **Core Developer** which is reserved for long term
+finally there's \textbf{Core Developer} which is reserved for long term
 contributors.
 
-## Contributors
+\subsection{Contributors}
 
 !!! warning
     Need to fix script to generate from ``data``.
+
 ---
 title: The Embroidermodder Project
 description: Free and Open Source Software for Machine Embroidery.
@@ -184,11 +185,13 @@ keywords: machine embroidery, embroidery, dst, pes, jef
 Embroidermodder is a free machine embroidery software program.
 The newest version, Embroidermodder 2 can:
 
-- edit and create embroidery designs
-- estimate the amount of thread and machine time needed to stitch a design
-- convert embroidery files to a variety of formats
-- upscale or downscale designs
-- run on Windows, Mac and Linux
+\begin{itemize}
+\item edit and create embroidery designs
+\item estimate the amount of thread and machine time needed to stitch a design
+\item convert embroidery files to a variety of formats
+\item upscale or downscale designs
+\item run on Windows, Mac and Linux
+\end{itemize}
 
 For more in-depth information, see [our website](http://www.libembroidery.org)
 and get the manuals [here](http://www.libembroidery.org/documentation).
@@ -252,7 +255,7 @@ Take quick and accurate measurements:
 
 ![features measure 1](images/features-measure-1.png)
 
-### Add text to any design
+\subsubsection{Add text to any design}
 
 Need to make company apparel for all of your employees with individual names on them? No sweat.
 Just simply add text to your existing design or create one from scratch, quickly and easily.
@@ -263,7 +266,7 @@ Add text and adjust its properties quickly:
 
 ![features text 1](images/features-text-1.png)
 
-### Supports many formats
+\subsubsection{Supports many formats}
 
 Embroidery machines all accept different formats. There are so many formats available that it
 can sometimes be confusing whether a design will work with your machine.
@@ -271,7 +274,7 @@ can sometimes be confusing whether a design will work with your machine.
 Embroidermodder 2 supports a wide variety of embroidery formats as well as several vector
 formats, such as SVG and DXF. This allows you to worry less about which designs you can use.
 
-### Batch Conversion
+\subsubsection{Batch Conversion}
 
 (Currently this being ported to the `embroider` command line program.)
 
@@ -282,7 +285,7 @@ There are a multitude of formats to choose from:
 
 ![features formats](images/features-formats-1.png)
 
-### Scripting API
+\subsubsection{Scripting API}
 
 The GUI works by emitting internal text commands, so if you want to alter
 or add features to the program that aren't as low level as these commands then you
@@ -293,7 +296,7 @@ A (no longer current) Embroidermodder 2 command excerpt:
 
 ![scripting screenshot](images/features-scripting-1.png)
 
-## Dependencies
+\subsection{Dependencies}
 
 To build Embroidermodder 2 from source you will need at least
 [the Embroidermodder 2 source code itself](https://github.com/Embroidermodder/Embroidermodder),
@@ -303,22 +306,23 @@ see the following subsections.
 You will also need the git submodules, which can be collected by running these lines
 from the embroidermodder source directory:
 
-```
+\begin{lstlisting}
 git submodule init
 git submodule update
-```
+\end{lstlisting}
 
-### Debian/Ubuntu repository packages
+\subsubsection{Debian/Ubuntu repository packages}
 
 The Qt, KDE and Valgrind build dependencies can be installed easily by
 opening a terminal and issuing these commands:
 
-```
+\begin{lstlisting}
 sudo apt-get update
-sudo apt-get install cmake build-essential qt6-base-dev libqt6gui6 libqt6widgets6 libqt6printsupport6 libqt6core6 libgl-dev libglx-dev libopengl-dev
-```
+sudo apt-get install cmake build-essential qt6-base-dev libqt6gui6 libqt6widgets6 \
+    libqt6printsupport6 libqt6core6 libgl-dev libglx-dev libopengl-dev
+\end{lstlisting}
 
-### Fedora repository packages
+\subsubsection{Fedora repository packages}
 
 _TODO: This is outdated advice._
 
@@ -343,12 +347,14 @@ At the time of writing, this will use around 2Gb of disk space. Then continue to
 
 If you have a development environment and for some reason want to use that over MSYS2 then ensure you run the installers for:
 
-1. CMake: https://cmake.org/download/#latest
-2. Qt: http://www.qt-project.org
-3. A Text Editor for Code like Visual Studio Code: https://code.visualstudio.com/
-4. A C compiler, like `gcc`, `cl`, `clang` or `tcc`.
-5. Git Bash: https://gitforwindows.org/
-6. A backend for CMake like Ninja: https://ninja-build.org/
+\begin{enumerate}
+\item CMake: \hyperref{https://cmake.org/download/#latest}
+\item Qt: \hyperref{http://www.qt-project.org}
+\item A Text Editor for Code like Visual Studio Code: \hyperref{https://code.visualstudio.com/}
+\item A C compiler, like `gcc`, `cl`, `clang` or `tcc`.
+\item Git Bash: \hyperref{https://gitforwindows.org/}
+\item A backend for CMake like Ninja: \hyperref{https://ninja-build.org/}
+\end{enumerate}
 
 Remember to add these to your `PATH` for scripts to use them.
 
@@ -484,13 +490,13 @@ The documentation, like the code, is mostly common to all subprojects.
 The Embroidermodder Reference Manual (EMRM) is the main developer 
 resource found here: [https://www.libembroidery.org/refman](https://www.libembroidery.org/refman) with the printer friendly version here: [https://www.libembroidery.org/downloads/emrm.pdf](https://www.libembroidery.org/downloads/emrm.pdf).
 
-# The Embroidermodder Project Website
+\section{The Embroidermodder Project Website}
 
 This directory contains most of the broader documentation and automation to
 stop minor changes flooding each of Embroidermodder's sub-projects. Including
 the documentation as webpages for the
-[site itself](https://www.libembroidery.org), each subproject's user manual but
-not the reference manual.
+site itself(\hyperref{https://www.libembroidery.org}), each subproject's user
+manual but not the reference manual.
 
 This frees the other repositories of the minor-commit heavy mundane tasks of
 bundling software and separating a "user" build from a "production" build. It
@@ -500,7 +506,7 @@ For in-depth information about the software please read some of the PDF manual
 included in the top level of the repository. Finishing the manual is the current
 top priority in order to fascilitate new developers joining the project.
 
-## Ideas
+\subsection{Ideas}
 
 A testing site that is maintained under testing.libembroidery.org so builds
 don't go straight to the main landing page.
@@ -510,9 +516,10 @@ have to think of something else since the version history of the binaries could
 quickly become important if we have any regressions.
 
 # About
-# CAD Command Overview
 
-A _CAD command_ in Embroidermodder is referred to as an action and the data
+\chapter{CAD Command Overview}
+
+A \emph{CAD command} in Embroidermodder is referred to as an action and the data
 needed for it to function is stored in the `command_data`. For a regular user
 who wishes to use more shortcuts and macros: a list of commands can be fed into
 the prompt similar to a `GCODE` file.
@@ -520,8 +527,10 @@ the prompt similar to a `GCODE` file.
 These are available on all platorms but with various levels of support and
 applicability.
 
-* [ABOUT](refman/commands/about)
-* [ADD-ARC](refman/commands/add-arc)
+\input{commands/00_about.tex}
+\input{commands/01_add-arc.tex}
+\input{commands/02_add-circle.tex}
+
 * [ADD-CIRCLE](refman/commands/add-circle)
 * [ADD-DIM-LEADER](refman/commands/add-dim-leader)
 * [ADD-ELLIPSE](refman/commands/add-ellipse)
@@ -614,7 +623,7 @@ applicability.
 | **shortcut**  |                                                              |
 +---------------+--------------------------------------------------------------+
 
-## ADD-POINT
+\subsection{ADD-POINT}
 
 +---------------+--------------------------------------------------------------+
 | **index**     | 11                                                           |
@@ -628,7 +637,7 @@ applicability.
 | **shortcut**  |                                                              |
 +---------------+--------------------------------------------------------------+
 
-## ADD-POLYGON
+\subsection{ADD-POLYGON}
 
 +---------------+--------------------------------------------------------------+
 | **index**     | 12                                                           |
@@ -642,7 +651,7 @@ applicability.
 +---------------+--------------------------------------------------------------+
 
 
-## ADD-POLYLINE
+\subsection{ADD-POLYLINE}
 
 +---------------+--------------------------------------------------------------+
 | **index**     | 13                                                           |
@@ -1845,19 +1854,20 @@ Please note that this file in not in alphabetical order. If you have contributed
 
 Here is a summary of the values used:
 
-* `Name`: The full name of the contributor starting with given name.
-* `GitHub`: The GitHub account name of the contributor.
-* `CoreDeveloper`: This is reserved for long term contributors.
-* `Documentation`: If you have contributed changes to README files or
-    help files, set this to true.
-* `Artwork`: If you have contributed artwork or related changes, set
-    this to true.
+\begin{itemize}
+\item `Name`: The full name of the contributor starting with given name.
+\item `GitHub`: The GitHub account name of the contributor.
+\item `CoreDeveloper`: This is reserved for long term contributors.
+\item `Documentation`: If you have contributed changes to README files or
+help files, set this to true.
+\item `Artwork`: If you have contributed artwork or related changes, set
+this to true.
 \item \textbf{BugFixes}: If you have contributed bug fixes or added new
-    features, set this to true.
+features, set this to true.
 \item \textbf{Translation}: If you have provided language translations, set this to true.
 \item \textbf{Designs}: If you have contributed an embroidery design sample, set this to true.
 \item \textbf{Bindings}: If you have contributed programming language
-    bindings for libembroidery, set this to true.
+bindings for libembroidery, set this to true.
 \item \textbf{Commands}: If you have contributed a command for Embroidermodder 2, set this to true.
 \end{itemize}
 
@@ -1881,100 +1891,6 @@ Here is a summary of the values used:
     ``I have a nice cherry chess-top(Glass). But remember, I NEVER played on it.''
 \item Robin Swift \texttt{robin-swift} (Core Developer, Documentation)
 \end{itemize}
-<center>
-_Dedicated to Jonathan Grieg._
-    
-_Open source software is made by people who care about good tools and other people._
-
-_You gave us so many ideas worth saving and we'll be working on, and sharing, your creations for some time._
-        
-_Rock on!_
-</center>
-
-```
-\documentclass[a4paper]{report}
-
-% Encoding goes first because it effects how other packages work
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-
-\usepackage[english]{babel} %language selection
-\selectlanguage{english}
-
-\pagenumbering{arabic}
-
-\usepackage{hyperref}
-\hypersetup{colorlinks, 
-           citecolor=black,
-           filecolor=black,
-           linkcolor=black,
-           urlcolor=black,
-           bookmarksopen=true,
-           pdftex}
-
-\hfuzz = .6pt % avoid black boxes
-
-% Fonts
-\usepackage{courier}
-\usepackage{tgbonum}
-%\usepackage{inconsolata}
-
-\usepackage{geometry}
-\usepackage{multicol}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{listings}
-\usepackage{hyperref}
-\usepackage{natbib}
-\usepackage{fancyhdr}
-\usepackage{imakeidx}
-\usepackage{graphicx}
-\usepackage{color}
-\usepackage{xcolor}
-\usepackage{longtable}
-\usepackage{booktabs}
-
-\DeclareUnicodeCharacter{0008}{ }
-
-\geometry{
-    margin=1.4in,
-    marginparwidth=0.8in
-}
-
-% Constants that are redefined
-\newcommand{\embversion}{2.0.0-alpha4}
-\newcommand{\version}{\embversion}
-\newcommand{\libembversion}{1.0.0-alpha}
-\newcommand{\publicationdate}{August 2023}
-
-% Marginalia
-\newcommand{\todo}[1]{\marginpar{\emph{TODO}\\{\footnotesize #1}}}
-
-\makeindex
-
-\title{Embroidermodder Reference Manual \embversion}
-\author{The Embroidermodder Team}
-
-\lstset{
-  basicstyle=\ttfamily\footnotesize,
-  language=C,
-  numbers=left,
-  extendedchars=true,
-%  commentstyle=\color{olivegreen},
-  title=\lstname,
-  frame=single
-}
-
-\hypersetup{
-  colorlinks=true,
-  breaklinks=true,
-  linkcolor=black,
-  filecolor=black,      
-  urlcolor=black,
-  citecolor=black
-}
-
-\begin{document}
 
 \begin{titlepage}
 
@@ -2047,29 +1963,6 @@ Free Documentation License''.
 
 \vspace*{8cm}
 
-\begin{center}
-    \emph{Dedicated to Jonathan Grieg}
-    
-    \vspace{1cm}
-    
-    \emph{Open source software is made by people who care about good tools
-     and other people.}
-    
-    \vspace{1cm}
-    
-    \emph{You gave us so many ideas worth saving and we'll be working on,
-    and sharing, your creations for some time.}
-    
-    \vspace{1cm}
-    
-    \emph{Rock on!}
-\end{center}
-    
-\newpage
-
-\tableofcontents
-```
-
 # Introduction
 
 ## The Embroidermodder Project and Team
@@ -2130,7 +2023,7 @@ If you have contributed and wish to be added to this list, alter the  README on 
 github page (https://github.com/Embroidermodder/Embroidermodder) and we'll copy it to the
 libembroidery source code since that is credited to ``The Embroidermodder Team``.
 
-\include{sections/credits.tex}
+\include{credits.tex}
 
 ## History
 
@@ -2808,13 +2701,12 @@ using the DllImport feature:
 ```
 
 see this StackOverflow discussion for help:
-https://stackoverflow.com/questions/11425202/is-it-possible-to-call-a-c-function-from-c-net
+\hyperref{https://stackoverflow.com/questions/11425202/is-it-possible-to-call-a-c-function-from-c-net}
 
 For Python you can do the same using ctypes:
-https://www.geeksforgeeks.org/how-to-call-a-c-function-in-python/
+\hyperref{https://www.geeksforgeeks.org/how-to-call-a-c-function-in-python/}
 
-### Other Supported Thread Brands
-
+\subsection{Other Supported Thread Brands}
 \index{supported threads}
 
 The thread lists that aren't preprogrammed into formats but are indexed in
@@ -3959,40 +3851,40 @@ This would all be in C, and wouldn't rely on Qt at all. We already use a
 system like this in `libembroidery` so hopefully devs on both
 would get the pattern.
 
-### Design
+\subsection{Design}
 
 These are key bits of reasoning behind why the software is built the way it is.
 
-### Scripting Overhaul
+\subsection{Scripting Overhaul}
 
 Originally Embroidermodder had a terminal widget, this is why we removed it.
 
 \begin{quote}
-> ROBIN: I think supporting scripting within Embroidermodder doesn't make
-> sense.
->
-> All features that use scripting can be part of libembroidery instead.
-> Users who are capable of using scripting won't need it, they can alter
-> their embroidery files in CSV format, or import pyembroidery to get
-> access. It makes maintaining the code a lot more complicated, especially
-> if we move away from Qt. Users who don't want the scripting > feature will
-> likely be confused by it, since we say that's what  libembroidery,
-> embroider and pyembroidery are for.
->
-> How about a simpler ``call user shell`` feature? Similar to texmaker we
-> just call system on a batch or shell script supplied by the user and it
-> processes the file directly then the software reloads the file. Then we
-> aren't parsing it directly.
->
-> I don't want to change this without Josh's support because it's a fairly
-> major change.
->
-> JOSH: I totally agree.
->
-> I like the idea of scripting just so people that know how to code could
-> write their own designs without needing to fully build the app.
-> Scripting would be a very advanced feature that most users would be
-> confused by. Libembroidery would be a good fit for advanced features.
+ROBIN: I think supporting scripting within Embroidermodder doesn't make
+sense.
+
+All features that use scripting can be part of libembroidery instead.
+Users who are capable of using scripting won't need it, they can alter
+their embroidery files in CSV format, or import pyembroidery to get
+access. It makes maintaining the code a lot more complicated, especially
+if we move away from Qt. Users who don't want the scripting > feature will
+likely be confused by it, since we say that's what  libembroidery,
+embroider and pyembroidery are for.
+
+How about a simpler ``call user shell`` feature? Similar to texmaker we
+just call system on a batch or shell script supplied by the user and it
+processes the file directly then the software reloads the file. Then we
+aren't parsing it directly.
+
+I don't want to change this without Josh's support because it's a fairly
+major change.
+
+JOSH: I totally agree.
+
+I like the idea of scripting just so people that know how to code could
+write their own designs without needing to fully build the app.
+Scripting would be a very advanced feature that most users would be
+confused by. Libembroidery would be a good fit for advanced features.
 \end{quote}
 
 ### Perennial Jobs
@@ -4000,7 +3892,7 @@ Originally Embroidermodder had a terminal widget, this is why we removed it.
 1. Check for memory leaks
 2. Clear compiler warnings on `-Wall\ -ansi\ -pedantic` for C.
 
-### Developing for Android
+\subsection{Developing for Android}
 
 https://developer.android.com/studio/projects/add-native-code
 
@@ -5219,7 +5111,7 @@ an error.
 
 ## Licenses
 
-\include{sections/fdl-1.3.tex}
+\include{fdl-1.3.tex}
 /* TODO: Josh, Review this file and move any info still valid or needing work into TODO comments in the actual
  *       libembroidery code. Many items in this list are out of date and do not reflect the current status of
  *       libembroidery. When finished, delete this file.
@@ -6211,10 +6103,11 @@ includes the API documentation). This is maintained at the permalink
 # Embroidermodder on Mobile: User Manual
 
 # Portable Embroidery Tool: User Manual
+\fi
 
-# Code snippets
+\section{Code snippets}
 
-```
+\begin{lstlisting}
 /* Use C Style Comments within code blocks.
  *
  * Use Doxygen style code blocks to place todo, bug, hack, warning,
@@ -6238,9 +6131,9 @@ circle = Circle(Vector(20, 30), 10)
 pattern = Pattern()
 pattern.add_circle(circle, fill=satin)
 pattern.to_stitches()
-```
+\end{lstlisting}
 
-```
+\begin{lstlisting}
 #define SETTING_interface_scale    16
 
 ...
@@ -6264,5 +6157,5 @@ char int_settings_labels[] = {
     for (i=0; int_settings_labels[i][0] != '%'; i++) {
         fprintf(setting_file, "\"%s\" :%d,\n", int_settings_labels[i], int_settings[i]);
     }
-```
+\end{lstlisting}
 
